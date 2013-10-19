@@ -1360,3 +1360,5 @@ function getFacetValueDesc(facetName, facetValue) {
 	}
 	return facetValueDesc;
 };
+
+var columnValues = {'DPTO': 'Departamento', 'LOC': 'Localidad', 'VIVVO01': 'Tipo de Vivienda', 'VIVVO03': 'Conficion de Ocupacion', 'VIVVO04': 'Residentes habituales que no integran el hogar colectivo', 'VIVDV01': 'Material predominante en paredes exteriores', 'VIVDV02': 'Material Predominante de los Techos', 'VIVDV03': 'Material predominante en los pisos', 'VIVDV05': 'Origen del agua', 'VIVDV06': 'Llegada de Agua', 'VIVDV07': 'Principal medio de alumbrado electrico', 'VIVHV01': 'Numero de hogares que comparten la vivienda', 'CATEVIV': 'Categoria de la vivienda', 'CCZ': 'Centro comunal zonal', 'SP_2010': 'Seccional policial'};

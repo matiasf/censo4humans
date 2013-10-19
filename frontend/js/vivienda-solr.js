@@ -54,9 +54,10 @@ var Manager;
 	    'f.topics.facet.limit': 50,
 	    'json.nl': 'map'
 	};
+	
 	for (var name in params) {
 	    Manager.store.addByValue(name, params[name]);
-	}
+	};
 	
 	Manager.doRequest();
     });
