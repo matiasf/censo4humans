@@ -3,10 +3,10 @@
     AjaxSolr.ChartWidget = AjaxSolr.AbstractWidget.extend({
 	start: 0,
 	
-	beforeRequest: function () {
+/*/	beforeRequest: function () {
 //	    $(this.target).html($('<img>').attr('src', 'images/ajax-loader.gif'));
 	},
-	
+*/	
 	/*facetLinks: function (facet_field, facet_values) {
 	  var links = [];
 	  if (facet_values) {
@@ -41,19 +41,20 @@
 		var arrayData = [[$(this.target).val() , 'Cantidad']];
 		for (var facet in this.manager.response.facet_counts.facet_fields[$(this.target).val()]) {
 		    arrayData.push([facet, parseInt(this.manager.response.facet_counts.facet_fields[$(this.target).val()][facet])]);
-		}
-		google.load("visualization", "1", {packages:["corechart"]});
-		google.setOnLoadCallback(drawChart);
-		function drawChart() {
+		};
+		google.setOnLoadCallback(function drawChart() {
 		    var data = google.visualization.arrayToDataTable(arrayData);
 		    
 		    var options = {
-			title: 'Viviendas'
+			title: 'My Daily Activities'
 		    };
 		    
 		    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 		    chart.draw(data, options);
-		}
+		});
+
+		/*
+		alert(arrayData);*/
 		
 	    }
 	},

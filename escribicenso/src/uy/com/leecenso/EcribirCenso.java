@@ -24,7 +24,7 @@ public class EcribirCenso {
 		solrServer.setMaxRetries(1);
 		solrServer.setConnectionTimeout(5000);
 		
-		Table table = new Table(new File("/home/vector/Desarrollo/leecenso/dbf-data/Viviendas.dbf"));
+		Table table = new Table(new File("/home/guillermo/Documents/data-oktober-fest/dbf-data/Viviendas.dbf"));
 		try {
 			table.open(IfNonExistent.ERROR);
 			System.out.println("Number of rows to import " + table.getRecordCount());
@@ -63,7 +63,7 @@ public class EcribirCenso {
 				}
 			}
 		} 
-		catch (CorruptedTableException | IOException | SolrServerException e) {
+		catch (Exception e) {
 			e.printStackTrace();
 		}
 		finally {
