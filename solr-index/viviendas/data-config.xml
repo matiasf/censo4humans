@@ -1,0 +1,8 @@
+<dataConfig>
+  <dataSource driver="sun.jdbc.odbc.JdbcOdbcDriver" url="jdbc:odbc:Driver={Microsoft dBASE Driver (*.dbf)};DefaultDir=/home/vector/Desarrollo/leecenso/dbf-data/Viviendas.dbf" />
+  <document name="viviendas">
+    <entity name="vivienda" query="SELECT * FROM Viviendas">
+      <field column="ID_VIVIEND,C,11" name="id_vivienda" />
+    </entity>
+  </document>
+</dataConfig>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+  <lib dir="/home/vector/Desarrollo/leecenso/solr-4.4.0/dist"/>
+  <lib dir="/home/vector/Desarrollo/leecenso/jre1.7.0_45/lib"/>
+  <luceneMatchVersion>LUCENE_43</luceneMatchVersion>
+  <requestDistpacher handleSelect="false">
+    <httpCaching never304="true"/>
+  </requestDistpacher>
+  <requestHandler name="/select" class="solr.SearchHandler"/>
+  <requestHandler name="/update" class="solr.UpdateRequestHandler"/>
+  <requestHandler name="/admin" class="solr.admin.AdminHandlers"/>
+  <requestHandler name="/analysis/field" class="solr.FieldAnalysisRequestHandler" startup="lazy"/>
+  <requestHandler name="/dataimport" class="solr.DataImportHandler">
+    <lst name="defaults">
+      <str name="config">/home/vector/Desarrollo/leecenso/solr-index/viviendas/data-config.xml</str>
+    </lst>
+  </requestHandler>
+</config>

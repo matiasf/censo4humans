@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema version="1.5">
+  <fields>
+    <field name="ID_VIVIEND" type="string" indexed="true" stored="true" required="true"/>
+    <field name="DPTO" type="string" indexed="true" stored="true" required="true"/> 
+    <field name="LOC" type="string" indexed="true" stored="true" required="true"/> 
+    <field name="SECC" type="string" indexed="true" stored="true" required="true"/> 
+    <field name="SEGM" type="string" indexed="true" stored="true" required="true"/> 
+    <field name="VIVID" type="string" indexed="true" stored="true" required="true"/> 
+    <field name="VIVVO01" type="string" indexed="true" stored="true" required="true"/> 
+    <field name="VIVVO03" type="string" indexed="true" stored="true" required="true"/> 
+    <field name="VIVVO04" type="string" indexed="true" stored="true" required="true"/> 
+    <field name="VIVDV01" type="string" indexed="true" stored="true" required="true"/> 
+    <field name="VIVDV02" type="string" indexed="true" stored="true" required="true"/> 
+    <field name="VIVDV03" type="string" indexed="true" stored="true" required="true"/> 
+    <field name="VIVDV05" type="string" indexed="true" stored="true" required="true"/> 
+    <field name="VIVDV06" type="string" indexed="true" stored="true" required="true"/> 
+    <field name="VIVDV07" type="string" indexed="true" stored="true" required="true"/> 
+    <field name="VIVHV01" type="string" indexed="true" stored="true" required="true"/> 
+    <field name="VIVHV01_1" type="string" indexed="true" stored="true" required="true"/>
+    <field name="CATEVIV" type="string" indexed="true" stored="true" required="true"/>
+    <field name="TIPO_VIVIE" type="string" indexed="true" stored="true" required="true"/>
+    <field name="CCZ" type="string" indexed="true" stored="true" required="true"/>
+    <field name="BARRIO85" type="string" indexed="true" stored="true" required="true"/>
+    <field name="SP_2010" type="string" indexed="true" stored="true" required="true"/>
+    <field name="PLANILLA" type="string" indexed="true" stored="true" required="true"/>
+    <field name="V24" type="string" indexed="true" stored="true" required="true"/>
+  </fields>
+  <uniqueKey>ID_VIVIEND</uniqueKey>
+  <types>
+    <fieldType name="string" class="solr.StrField"/>
+  </types>
+</schema>

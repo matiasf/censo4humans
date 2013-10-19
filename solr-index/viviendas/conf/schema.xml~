@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema version="1.5">
+  <fields>
+    <field name="id_vivienda" type="string" indexed="true" stored="true" required="true"/>
+  </fields>
+  <uniqueKey>id_vivienda</uniqueKey>
+  <types>
+    <fieldType name="string" class="solr.StrField"/>
+  </types>
+</schema>
