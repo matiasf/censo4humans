@@ -11,7 +11,11 @@ var Manager;
 	    target: '#docs'
 	}));
 
-	var fields = [ 'DPTO', 'LOC', 'CCZ' ];
+	var fields = [ 
+		'DPTO', 'LOC', 'CCZ', 'SP_2010', 'TIPO_VIVIE', 'VIVVO01', 
+		'VIVVO03', 'VIVVO04', 'VIVDV01', 'VIVDV02', 'VIVDV03',  
+		'VIVDV05' /*, 'VIVDV06', 'VIVDV07', 'VIVHV01'*/		
+	];
 	for (var i = 0, l = fields.length; i < l; i++) {
 	  Manager.addWidget(new AjaxSolr.FacetWidget({
 	    id: fields[i],
@@ -44,7 +48,7 @@ var Manager;
 
 	var params = {
 	    facet: true,
-	    'facet.field': [ 'DPTO', 'LOC', 'CCZ' ],
+	    'facet.field': fields,
 	    'facet.limit': 20,
 	    'facet.mincount': 1,
 	    'f.topics.facet.limit': 50,
