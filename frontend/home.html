@@ -9,7 +9,10 @@
     <script src="js/ajax-solr/core/Parameter.js"></script>
     <script src="js/ajax-solr/core/ParameterStore.js"></script>
     <script src="js/ajax-solr/core/AbstractWidget.js"></script>
+    <script src="js/ajax-solr/core/AbstractFacetWidget.js"></script>
     <script src="js/ajax-solr/managers/Manager.jquery.js"></script>
+    <script src="js/widgets/FacetWidget.js"></script>
+    <script src="js/widgets/CurrentSearchWidget.js"></script>
     <script src="js/widgets/ResultWidget.js"></script>
     <script src="js/vivienda-solr.js"></script>
   </head>
@@ -31,17 +34,17 @@
       </div>
       
       <div class="left">
-	<h2>Current Selection</h2>
+	<h2>Busqueda Actual</h2>
 	<ul id="selection"></ul>
 	
-	<h2>Top Topics</h2>
-	<div class="tagcloud" id="topics"></div>
+	<h2>Departamentos</h2>
+	<div class="tagcloud" id="DPTO"></div>
 	
-	<h2>Top Organisations</h2>
-	<div class="tagcloud" id="organisations"></div>
+	<h2>Localidades</h2>
+	<div class="tagcloud" id="LOC"></div>
 	
-	<h2>Top Exchanges</h2>
-	<div class="tagcloud" id="exchanges"></div>
+	<h2>Centros Comunales Zonales</h2>
+	<div class="tagcloud" id="CCZ"></div>
 	<div class="clear"></div>
       </div>
       <div class="clear"></div>
