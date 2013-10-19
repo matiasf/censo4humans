@@ -42,20 +42,10 @@
 		for (var facet in this.manager.response.facet_counts.facet_fields[$(this.target).val()]) {
 		    arrayData.push([facet, parseInt(this.manager.response.facet_counts.facet_fields[$(this.target).val()][facet])]);
 		};
-		google.setOnLoadCallback(function drawChart() {
-		    var data = google.visualization.arrayToDataTable(arrayData);
-		    
-		    var options = {
-			title: 'My Daily Activities'
-		    };
-		    
-		    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-		    chart.draw(data, options);
-		});
-
-		/*
-		alert(arrayData);*/
-		
+		var options = {
+		    title: 'My Daily Activities'
+		};
+		this.chart.draw(google.visualization.arrayToDataTable(arrayData), options);
 	    }
 	},
 	

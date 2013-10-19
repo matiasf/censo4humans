@@ -1,0 +1,77 @@
+<html>
+  <head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="css/reuters.css">
+    <link rel="stylesheet" href="css/jquery/jquery-ui.css">
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  
+  
+</script>
+    <script src="js/jquery/jquery.min.js"></script>
+    <script src="js/jquery/jquery-ui.min.js"></script>
+    <script src="js/ajax-solr/core/Core.js"></script>
+    <script src="js/ajax-solr/core/AbstractManager.js"></script>
+    <script src="js/ajax-solr/core/Parameter.js"></script>
+    <script src="js/ajax-solr/core/ParameterStore.js"></script>
+    <script src="js/ajax-solr/core/AbstractWidget.js"></script>
+    <script src="js/ajax-solr/core/AbstractFacetWidget.js"></script>
+    <script src="js/ajax-solr/managers/Manager.jquery.js"></script>
+    <script src="js/widgets/FacetWidget.js"></script>
+    <script src="js/widgets/CurrentSearchWidget.js"></script>    
+    <script src="js/widgets/jquery/PagerWidget.js"></script>
+    <script src="js/widgets/ResultWidget.js"></script>
+<<<<<<< HEAD
+    <script src="js/widgets/ChartWidget.js"></script>
+=======
+    <script src="js/utilities.js"></script>
+>>>>>>> 74faa4dd6d39a535e69488441179ccf7f1535e0c
+    <script src="js/vivienda-solr.js"></script>
+  </head>
+  <body>
+    <div id="wrap"> 
+      <div id="header">
+	<h1>CENSO for HUMANS (Not Yet!)</h1>
+	<h2>Navegate el censo papa! SAPE!</h2>
+      </div>
+
+      <div id="piechart" style="width: 900px; height: 500px;"></div>
+      
+      <div class="right">
+	<div id="result">
+          <div id="navigation">
+            <ul id="pager"></ul>
+            <div id="pager-header"></div>
+          </div>
+          <div id="docs"></div>
+	</div>
+      </div>
+      
+      <div class="left">
+<<<<<<< HEAD
+	<h2>Campo</h2>
+	<ul>
+	  <select id="field">
+	    <option value="DPTO" selected="true">Departamento</option>
+	  </select> 
+	</ul>
+	<h2>Busqueda Actual</h2>
+=======
+	<h2>Búsqueda Actual</h2>
+>>>>>>> 74faa4dd6d39a535e69488441179ccf7f1535e0c
+	<ul id="selection"></ul>
+	
+	<h2>Departamentos</h2>
+	<div class="tagcloud" id="DPTO"></div>
+	
+	<h2>Localidades</h2>
+	<div class="tagcloud" id="LOC"></div>
+	
+	<h2>Centros Comunales Zonales</h2>
+	<div class="tagcloud" id="CCZ"></div>
+	<div class="clear"></div>
+      </div>
+      <div class="clear"></div>
+    </div> 
+  </body>
+</html>
