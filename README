@@ -1,0 +1,1 @@
+Command to start Solr index: java -Dsolr.solr.home={PATH_TO_REPO}/solr-index/ -jar start.jar
