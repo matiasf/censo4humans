@@ -25,7 +25,7 @@ AjaxSolr.FacetWidget = AjaxSolr.AbstractFacetWidget.extend({
       var facet = objectedItems[i].facet;
       $(this.target).append(
         $('<a href="#" class="tagcloud_item"></a>')
-        .text(facet)
+        .text(facet + '(' + objectedItems[i].count +')')
         .addClass('tagcloud_size_' + parseInt(objectedItems[i].count / maxCount * 10))
         .click(this.clickHandler(facet))
       );
