@@ -17,7 +17,7 @@ import org.apache.solr.common.SolrInputDocument;
 
 public class EcribirCenso {
 	
-	final private static String SOLR_URL = "http://localhost:8983/solr/collection1";
+	final private static String SOLR_URL = "http://localhost:8983/solr/viviendas";
 
 	public static void main(String[] args) {
 		HttpSolrServer solrServer = new HttpSolrServer(SOLR_URL);
@@ -27,10 +27,13 @@ public class EcribirCenso {
 		Table table = new Table(new File("/home/vector/Desarrollo/leecenso/dbf-data/Viviendas.dbf"));
 		try {
 			table.open(IfNonExistent.ERROR);
+			System.out.println("Number of rows to import " + table.getRecordCount());
 			int i = 0;
+			int addedCount = 0;
 			Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
 			for (Iterator<Record> iterator = table.recordIterator(); iterator.hasNext();) {
 				Record record = iterator.next();
+				i++;
 				SolrInputDocument document = new SolrInputDocument();
 				for (ViviendasAttr attr : ViviendasAttr.values()) {
 					switch (attr.type()) {
@@ -39,8 +42,7 @@ public class EcribirCenso {
 							document.addField(attr.name(), record.getNumberValue(attr.name()));
 						}
 						catch (NumberFormatException ex) {
-							System.out.println(attr.name());
-							ex.printStackTrace();
+							document.addField(attr.name(), "NULL");
 						}
 						break;
 					case CHARACTER:
@@ -52,6 +54,8 @@ public class EcribirCenso {
 				}
 				docs.add(document);
 				if (i == 100000 || !iterator.hasNext()) {
+					addedCount += i;
+					System.out.println("Adding - " + addedCount);
 					i = 0;
 					solrServer.add(docs);
 					solrServer.commit();
