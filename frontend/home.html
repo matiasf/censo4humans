@@ -20,81 +20,91 @@
     <script src="js/widgets/ChartWidget.js"></script>
     <script src="js/utilities.js"></script>
     <script src="js/vivienda-solr.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+         for (var column in columnValues) {
+            $('#title_' + column).text(columnValues[column]);
+         }
+      });
+    </script>
   </head>
   <body>
     <div id="wrap"> 
       <div id="header">
-	<h1>CENSO for HUMANS (Not Yet!)</h1>
-	<h2>Navegate el censo papa! SAPE!</h2>
+      	<h1>CENSO for HUMANS (Not Yet!)</h1>
+      	<h2>Navegate el censo papa! SAPE!</h2>
       </div>
 
       <div id="piechart" style="width: 900px; height: 500px;"></div>
       
       <div class="right">
-	<div id="result">
+      	<div id="result">
           <div id="navigation">
             <ul id="pager"></ul>
             <div id="pager-header"></div>
           </div>
           <div id="docs"></div>
-	</div>
+      	</div>
       </div>
       
       <div class="left">
-	<h2>Campo</h2>
-	<ul>
-	  <select id="field">
-	  </select> 
-	</ul>
-	<h2>Busqueda Actual</h2>
-	<ul id="selection"></ul>
-	
-	<h2>Departamentos</h2>
-	<div class="tagcloud" id="DPTO"></div>
-	
-	<h2>Localidades</h2>
-	<div class="tagcloud" id="LOC"></div>
-	
-	<h2>Centros Comunales Zonales</h2>
-	<div class="tagcloud" id="CCZ"></div>
-	
-  <h2>Sección Policial</h2>
-  <div class="tagcloud" id="SP_2010"></div>
+      	<h2>Campo</h2>
+      	<ul>
+      	  <select id="field">
+      	  </select> 
+      	</ul>
+      	<h2>Busqueda Actual</h2>
+      	<ul id="selection"></ul>
+      	
+      	<h2 id="title_DPTO"></h2>
+      	<div class="tagcloud" id="DPTO"></div>
+      	
+      	<h2 id="title_LOC"></h2>
+      	<div class="tagcloud" id="LOC"></div>
+      	
+      	<h2 id="title_CCZ"></h2>
+      	<div class="tagcloud" id="CCZ"></div>
+      	
+        <h2 id="title_SP_2010"></h2>
+        <div class="tagcloud" id="SP_2010"></div>
 
-  <h2>Tipo de Vivienda Resumido</h2>
-  <div class="tagcloud" id="TIPO_VIVIE"></div>
+        <h2 id="title_TIPO_VIVIE"></h2>
+        <div class="tagcloud" id="TIPO_VIVIE"></div>
 
-  <h2>Tipo de Vivienda</h2>
-  <div class="tagcloud" id="VIVVO01"></div>
+        <h2 id="title_VIVVO01"></h2>
+        <div class="tagcloud" id="VIVVO01"></div>
 
-  <h2>Condicíón de Ocupación</h2>
-  <div class="tagcloud" id="VIVVO03"></div>
+        <h2 id="title_VIVVO03"></h2>
+        <div class="tagcloud" id="VIVVO03"></div>
 
-  <h2>Residentes Habituales qie no intergran el hogar colectivo</h2>
-  <div class="tagcloud" id="VIVVO04"></div>
+        <h2 id="title_VIVVO04"></h2>
+        <div class="tagcloud" id="VIVVO04"></div>
 
-  <h2>Material Predominante en Paredes Exteriores</h2>
-  <div class="tagcloud" id="VIVDV01"></div>
+        <h2 id="title_VIVDV01"></h2>
+        <div class="tagcloud" id="VIVDV01"></div>
 
-  <h2>Material Predominante de los Techos</h2>
-  <div class="tagcloud" id="VIVDV02"></div>
+        <h2 id="title_VIVDV02"></h2>
+        <div class="tagcloud" id="VIVDV02"></div>
 
-  <h2>Material predominante de los pisos</h2>
-  <div class="tagcloud" id="VIVDV03"></div>
+        <h2 id="title_VIVDV03"></h2>
+        <div class="tagcloud" id="VIVDV03"></div>
 
-  <h2>Origen del agua</h2>
-  <div class="tagcloud" id="VIVDV05"></div>
+        <h2 id="title_VIVDV05"></h2>
+        <div class="tagcloud" id="VIVDV05"></div>
 
-  <h2>Llegada de agua</h2>
-  <div class="tagcloud" id="VIVDV06"></div>
+        <h2 id="title_VIVDV06"></h2>
+        <div class="tagcloud" id="VIVDV06"></div>
 
-  <h2>Principal medio de alumbrado eléctrico</h2>
-  <div class="tagcloud" id="VIVDV07"></div>
+        <h2 id="title_VIVDV07"></h2>
+        <div class="tagcloud" id="VIVDV07"></div>
 
-  <h2>Número de hogares en la vivienda</h2>
-  <div class="tagcloud" id="VIVHV01"></div>
+        <h2 id="title_VIVHV01"></h2>
+        <div class="tagcloud" id="VIVHV01"></div>
 
-  <div class="clear"></div>
+        <h2 id="title_CATEVIV"></h2>
+        <div class="tagcloud" id="CATEVIV"></div>
+
+        <div class="clear"></div>
       </div>
       <div class="clear"></div>
     </div> 

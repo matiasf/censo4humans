@@ -1339,18 +1339,57 @@ var origenDelAgua = {
 	"8":"No relevado",
 };
 
+var llegadaDeAgua = {
+	"1":"Por cañería dentro de la vivienda",
+	"2":"Por cañería fuera de la vivienda a menos de 100 mts. de distancia",
+	"3":"Por cañería fuera de la vivienda a más de 100 mts. de distancia",
+	"4":"Por otros medios",
+	"8":"No relevado",
+};
+
+var principalMedioAlumbrado = {
+	"1":"UTE o red general",
+	"2":"Cargador eólico de batería",
+	"3":"Cargador solar de batería",
+	"4":"Grupo electrógeno propio",
+	"5":"Otro eléctrico",
+	"6":"No tiene",
+	"8":"No relevado",
+};
+
+var numHogaresVivienda = {
+	"1":"Hogar único",
+	"2":"Más de un hogar",
+};
+
+var categoriaDeVivienda = {
+	"1":"Materiales pesados en paredes y techos y piso resistente",
+	"2":"Materiales pesados en paredes, techo liviano y piso resisten",
+	"3":"Materiales pesados en paredes y techos y piso no resistente",
+	"4":"Materiales pesados en paredes, techos livianos y piso no res",
+	"5":"Materiales livianos en paredes y techos y piso resistente",
+	"6":"Materiales livianos en paredes y techos y piso no resistente",
+	"7":"Paredes de barro o adobe, techo liviano y piso resistente",
+	"8":"Paredes de barro o adobe, techo liviano y piso no resistente",
+	"9":"Materiales de desecho en paredes o techos",
+	"10":"Otras combinaciones de materiales",
+};
+
 var facetValuesDescMap = {
-	'DPTO': departamentos, 'LOC': localidades, 'TIPO_VIVIE': tipoDeViviendaResumido, 'VIVVO01': tipoDeVivienda,
+	'DPTO': departamentos, 
+	'LOC': localidades, 
+	'TIPO_VIVIE': tipoDeViviendaResumido, 
+	'VIVVO01': tipoDeVivienda,
 	'VIVVO03' : condicionDeOcupacion,
 	'VIVVO04' : residentesHabituales, 
 	'VIVDV01' : materialPredominanteParedes, 
 	'VIVDV02' : materialPredominanteTechos, 
 	'VIVDV03' : materialPredominantePisos,  
 	'VIVDV05' : origenDelAgua, 
-	/*'VIVDV06' : , 
-	'VIVDV07' : , 
-	'VIVHV01' : , 
-	'VIVHV01_1' ,*/
+	'VIVDV06' : llegadaDeAgua, 
+	'VIVDV07' : principalMedioAlumbrado, 
+	'VIVHV01' : numHogaresVivienda, 
+	'CATEVIV' : categoriaDeVivienda,
 };
 
 function getFacetValueDesc(facetName, facetValue) {
@@ -1361,4 +1400,21 @@ function getFacetValueDesc(facetName, facetValue) {
 	return facetValueDesc;
 };
 
-var columnValues = {'DPTO': 'Departamento', 'LOC': 'Localidad', 'VIVVO01': 'Tipo de Vivienda', 'VIVVO03': 'Conficion de Ocupacion', 'VIVVO04': 'Residentes habituales que no integran el hogar colectivo', 'VIVDV01': 'Material predominante en paredes exteriores', 'VIVDV02': 'Material Predominante de los Techos', 'VIVDV03': 'Material predominante en los pisos', 'VIVDV05': 'Origen del agua', 'VIVDV06': 'Llegada de Agua', 'VIVDV07': 'Principal medio de alumbrado electrico', 'VIVHV01': 'Numero de hogares que comparten la vivienda', 'CATEVIV': 'Categoria de la vivienda', 'CCZ': 'Centro comunal zonal', 'SP_2010': 'Seccional policial'};
+var columnValues = {
+	'DPTO': 'Departamento',
+	'LOC': 'Localidad',
+	'TIPO_VIVIE': 'Tipo de Vivienda Resumido',
+	'VIVVO01': 'Tipo de Vivienda',
+	'VIVVO03': 'Condición de Ocupación',
+	'VIVVO04': 'Residentes habituales que no integran el hogar colectivo',
+	'VIVDV01': 'Material predominante en paredes exteriores',
+	'VIVDV02': 'Material predominante de los techos',
+	'VIVDV03': 'Material predominante en los pisos',
+	'VIVDV05': 'Origen del agua',
+	'VIVDV06': 'Llegada de Agua',
+	'VIVDV07': 'Principal medio de alumbrado eléctrico',
+	'VIVHV01': 'Número de hogares que comparten la vivienda',
+	'CATEVIV': 'Categoría de la vivienda',
+	'CCZ': 'Centro Comunal Zonal',
+	'SP_2010': 'Seccional Policial'
+};
