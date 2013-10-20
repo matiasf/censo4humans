@@ -1,3 +1,5 @@
 solr-index/viviendas/data
+solr-index/hogares/data
+solr-index/personas/data
 *.class
 *~
