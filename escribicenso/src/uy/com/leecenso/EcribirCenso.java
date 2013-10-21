@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Properties;
 
 import nl.knaw.dans.common.dbflib.CorruptedTableException;
@@ -42,6 +43,23 @@ public class EcribirCenso {
 			final Table table = new Table(new File(prop.getProperty("dbf-files") + tableMap.split(";")[0] + ".dbf"));
 			table.open(IfNonExistent.ERROR);
 			
+			final List<List<String>> concatFields = new ArrayList<>();
+			for (final String concats : prop.getProperty("concat-fields").split(",")) {
+				final List<String> concatField = new ArrayList<>();
+				for (final String field : concats.split(";")) {
+					for (final Field attr : table.getFields()) {
+						if (attr.getName().equalsIgnoreCase(field)) {
+							concatField.add(attr.getName());
+							break;
+						}
+					}
+					if (concatField.size() == concats.split(";").length) {
+						concatFields.add(concatField);
+						break;
+					}
+				}
+			}	
+			
 			final HttpSolrServer solrServer = new HttpSolrServer(tableMap.split(";")[1]);
 			solrServer.setMaxRetries(1);
 			solrServer.setConnectionTimeout(5000);
@@ -59,7 +77,7 @@ public class EcribirCenso {
 				final SolrInputDocument document = new SolrInputDocument();
 				i++;
 				document.addField("ID", id);
-				for (Field attr : table.getFields()) {
+				for (final Field attr : table.getFields()) {
 					switch (attr.getType()) {
 					case NUMBER:
 						try {
@@ -86,6 +104,45 @@ public class EcribirCenso {
 					}
 					id++;
 				}
+				
+				for (final List<String> concatField : concatFields) {
+					String concatFieldName = "";
+					String concatFieldValue = "";
+					for (final String field : concatField) {
+						concatFieldName += field;
+						for (final Field tableField : table.getFields()) {
+							if (tableField.getName().equalsIgnoreCase(field)) {
+								switch (tableField.getType()) {
+								case NUMBER:
+									try {
+										concatFieldValue += record.getNumberValue(tableField.getName());
+									}	
+									catch (final NumberFormatException ex) {
+										concatFieldValue += "NULL";
+									}
+									break;
+								case CHARACTER:
+									concatFieldValue += record.getStringValue(tableField.getName().isEmpty() ? "NULL" : tableField.getName());
+									break;
+								case DATE:
+									try {
+										concatFieldValue += record.getDateValue(tableField.getName());
+									}	
+									catch (final NumberFormatException ex) {
+										concatFieldValue += "NULL";
+									}						
+									break;
+								default:
+									System.out.println("Field not supported" + tableField.getType().name());
+									break;
+								}
+								break;
+							}
+						}
+					}
+					document.addField(concatFieldName, concatFieldValue);
+				}
+				
 				docs.add(document);
 				
 				if (i == 50000) {
