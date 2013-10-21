@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -36,6 +37,8 @@ public class EcribirCenso {
 	public static void main(String[] args) throws FileNotFoundException, IOException, CorruptedTableException, SolrServerException {
 		final Properties prop = new Properties();
 		prop.load(new FileInputStream("config.properties"));
+		
+		final SimpleDateFormat dateFormater = new SimpleDateFormat("MM/yyyy");
 		
 		final Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
 		for (final String tableMap : Lists.newArrayList(Splitter.on(',').
@@ -88,11 +91,14 @@ public class EcribirCenso {
 						}
 						break;
 					case CHARACTER:
-						document.addField(attr.getName(), record.getStringValue(attr.getName()));
+						document.addField(attr.getName(), record.getStringValue(attr.getName()).trim().isEmpty() ?
+								"NULL" : record.getStringValue(attr.getName()).trim());
 						break;
 					case DATE:
 						try {
-							document.addField(attr.getName(), record.getDateValue(attr.getName()));
+							document.addField(attr.getName(), dateFormater.format(record.getDateValue(attr.getName())));
+							document.addField(attr.getName() + "MES", dateFormater.format(record.getDateValue(attr.getName())).split("/")[0]);
+							document.addField(attr.getName() + "ANO", dateFormater.format(record.getDateValue(attr.getName())).split("/")[1]);
 						}	
 						catch (final NumberFormatException ex) {
 							document.addField(attr.getName(), "NULL");
@@ -122,11 +128,11 @@ public class EcribirCenso {
 									}
 									break;
 								case CHARACTER:
-									concatFieldValue += record.getStringValue(tableField.getName().isEmpty() ? "NULL" : tableField.getName());
+									concatFieldValue += record.getStringValue(tableField.getName()).trim();
 									break;
 								case DATE:
 									try {
-										concatFieldValue += record.getDateValue(tableField.getName());
+										concatFieldValue += dateFormater.format(record.getDateValue(tableField.getName()));
 									}	
 									catch (final NumberFormatException ex) {
 										concatFieldValue += "NULL";
@@ -145,7 +151,7 @@ public class EcribirCenso {
 				
 				docs.add(document);
 				
-				if (i == 50000) {
+				if (i == 10000) {
 					addedCount += i;
 					System.out.println("Adding - " + addedCount);
 					i = 0;
