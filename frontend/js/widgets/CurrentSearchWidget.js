@@ -13,7 +13,7 @@ AjaxSolr.CurrentSearchWidget = AjaxSolr.AbstractWidget.extend({
       facetValueDesc = getFacetValueDesc(fq[i].split(':')[0], fq[i].split(':')[1]);
       facetNameAndValueDesc = facetNameDesc + ": " + facetValueDesc;
       facetValueDescShort = facetValueDesc.length > 30 ? facetValueDesc.substring(0, 30) + "..." : facetValueDesc;
-      links.push($('<button class="btn btn-success btn-sm" data-toggle="tooltip"><span class="glyphicon glyphicon-remove"></span>' + facetValueDescShort +'</button>')
+      links.push($('<button class="btn btn-success btn-sm" data-toggle="tooltip" title="' + facetNameAndValueDesc + '"><span class="glyphicon glyphicon-remove"></span>' + facetValueDescShort +'</button>')
         .click(self.removeFacet(fq[i])));
     }
 
