@@ -12,7 +12,7 @@ var Manager;
 	}));
 
 	var fields = [ 
-		'DPTO', 'LOC', 'CCZ', 'SP_2010', 'TIPO_VIVIE', 'VIVVO01', 
+		'DPTO', 'DPTOLOC', 'CCZ', 'SP_2010', 'TIPO_VIVIE', 'VIVVO01', 
 		'VIVVO03', 'VIVVO04', 'VIVDV01', 'VIVDV02', 'VIVDV03',  
 		'VIVDV05' , 'VIVDV06', 'VIVDV07', 'VIVHV01', 'CATEVIV'
 	];

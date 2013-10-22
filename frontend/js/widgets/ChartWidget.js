@@ -18,10 +18,7 @@
 			for (var facet in this.manager.response.facet_counts.facet_fields[$(this.target).val()]) {
 			    arrayData.push([getFacetValueDesc($(this.target).val(),facet), parseInt(this.manager.response.facet_counts.facet_fields[$(this.target).val()][facet])]);
 			};
-			var options = {
-			    title: 'Gráfico'
-			};
-			this.chart.draw(google.visualization.arrayToDataTable(arrayData), options);
+			this.chart.draw(google.visualization.arrayToDataTable(arrayData));
 		}
 	}
     });

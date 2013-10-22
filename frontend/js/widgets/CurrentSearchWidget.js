@@ -7,24 +7,18 @@ AjaxSolr.CurrentSearchWidget = AjaxSolr.AbstractWidget.extend({
     var self = this;
     var links = [];
 
-    var q = this.manager.store.get('q').val();
-    if (q != '*:*') {
-      links.push($('<a href="#"></a>').text('(x) ' + q).click(function () {
-        self.manager.store.get('q').val('*:*');
-        self.doRequest();
-        return false;
-      }));
-    }
-
     var fq = this.manager.store.values('fq');
     for (var i = 0, l = fq.length; i < l; i++) {
-      facetValueDesc = fq[i].split(':')[0] + ":" + getFacetValueDesc(fq[i].split(':')[0], fq[i].split(':')[1])
-      links.push($('<a href="#"></a>').text('(x) ' + facetValueDesc).click(self.removeFacet(fq[i])));
+      facetNameDesc = columnValues[fq[i].split(':')[0]];
+      facetValueDesc = getFacetValueDesc(fq[i].split(':')[0], fq[i].split(':')[1]);
+      facetNameAndValueDesc = facetNameDesc + ": " + facetValueDesc;
+      facetValueDescShort = facetValueDesc.length > 30 ? facetValueDesc.substring(0, 30) + "..." : facetValueDesc;
+      links.push($('<button class="btn btn-success btn-sm" data-toggle="tooltip"><span class="glyphicon glyphicon-remove"></span>' + facetValueDescShort +'</button>')
+        .click(self.removeFacet(fq[i])));
     }
 
     if (links.length > 1) {
-      links.unshift($('<a href="#"></a>').text('remove all').click(function () {
-        self.manager.store.get('q').val('*:*');
+      links.unshift($('<a href="#"></a>').text('Quitar todos los filtros').click(function () {
         self.manager.store.remove('fq');
         self.doRequest();
         return false;
@@ -37,9 +31,10 @@ AjaxSolr.CurrentSearchWidget = AjaxSolr.AbstractWidget.extend({
       for (var i = 0, l = links.length; i < l; i++) {
         $target.append($('<li></li>').append(links[i]));
       }
+      $("[data-toggle='tooltip']").tooltip({placement: 'right'});
     }
     else {
-      $(this.target).html('<li>Viewing all documents!</li>');
+      $(this.target).html('<li>Estás viendo todos los documentos :)</li>');
     }
   },
 
