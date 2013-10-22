@@ -27,6 +27,10 @@ var Manager;
 	  id: 'currentsearch',
 	  target: '#selection',
 	}));
+	Manager.addWidget(new AjaxSolr.CurrentSearchWidget({
+	  id: 'currentsearch',
+	  target: '#selection',
+	}));
 	Manager.addWidget(new AjaxSolr.PagerWidget({
 	    id: 'pager',
 	    target: '#pager',
@@ -44,6 +48,18 @@ var Manager;
 	}));
 	Manager.init();
 	Manager.store.addByValue('q', '*:*');
+
+	var query = '';
+	if (window.location.search.substring(1)) {
+	    query = window.location.search.substring(1);
+	}
+	query = query.split('|')[0];
+	if (query) {
+	    var qfields = query.split('_');
+	    for (var i = 0; i < qfields.length; i++) {
+		Manager.store.addByValue('fq', qfields[i].split('-')[0] + ':' + qfields[i].split('-')[1]);
+	    }
+	}	
 	google.load("visualization", "1", {packages:["corechart"]});
 
 	var params = {

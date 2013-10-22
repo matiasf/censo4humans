@@ -1,1 +1,8 @@
+Project Structure
+
+escribicenso/ - Program to populate the .dbf files to the Solr index.
+frontend/ - UI to see the indexes by web.
+solr-index/ - Indexes configurated.
+
+To start the Solr with the Solr indexes, execute:
 Command to start Solr index: java -Dsolr.solr.home={PATH_TO_REPO}/solr-index/ -jar start.jar
