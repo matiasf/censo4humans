@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.png">
+
+    <title>CENSO for HUMANS (Not Yet!)</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="boot/css/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="boot/css/justified-nav.css" rel="stylesheet">
+    <!-- Project specific imports-->
+    <link href="css/censo.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="boot/assets/js/html5shiv.js"></script>
+      <script src="boot/assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <div class="masthead">
+        <h3 class="text-muted">CENSO for HUMANS (Not Yet!)</h3>
+	<ul class="nav nav-justified">
+          <li><a href="viviendas.html">Viviendas</a></li>
+          <li><a href="hogares.html">Hogares</a></li>
+          <li><a href="personas.html">Personas</a></li>
+	  <li class="active"><a href="preguntas.html">¿Que preguntar?</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      
+      <button class="btn btn-large btn-block" type="button" onclick="window.location.href='viviendas.html?DPTO-01_VIVVO03-7|VIVVO01'">¿Cuantas viviendas vacias hay en Montevideo y de que tipos?</button>
+      <button class="btn btn-large btn-block" type="button" onclick="window.location.href='viviendas.html?VIVVO01-10|DPTO'">¿Cuantos hospitales o sanatorios con internacion hay por departamento?</button>
+      <button class="btn btn-large btn-block" type="button" onclick="window.location.href='viviendas.html?DPTO-01|CCZ'">¿Cuantas vividendas atiende cada centro comunal en Montevideo?</button>
+      <button class="btn btn-large btn-block" type="button" onclick="window.location.href='viviendas.html?VIVDV03-0_VIVVO03-1|DPTO'">¿En cuantas viviendas, estando residentes presente en su casa al momento del CENSO no brindo datos sobre la informacion de la vivienda por departamento?</button>
+      
+      <!-- Site footer -->
+      <div class="footer">
+        <p>&copy; Company 2013</p>
+      </div>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery/jquery.min.js"></script>
+    <script src="js/jquery/jquery-ui.min.js"></script>
+    <script src="boot/js/bootstrap.min.js"></script>
+
+  </body>
+</html>
