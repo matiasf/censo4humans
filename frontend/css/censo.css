@@ -50,3 +50,17 @@ ul.filter-list li {
   margin-top: 5px;
   margin-bottom: 5px;
 }
+
+#pager,
+#pager-header {
+  display: inline;
+}
+#pager li,
+.links li {
+  list-style-type: none;
+  display: inline;
+}
+
+.results-table {
+  overflow-x: auto;
+}

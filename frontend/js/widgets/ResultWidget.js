@@ -4,21 +4,36 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
   start: 0,
 
   beforeRequest: function () {
-    $(this.target).html($('<img>').attr('src', 'images/ajax-loader.gif'));
+    $(this.docsBody).html($('<img>').attr('src', 'images/ajax-loader.gif'));
   },
 
   afterRequest: function () {
-    $(this.target).empty();
+    $(this.docsBody).empty();
+    $(this.docsHeader).empty();
     for (var i = 0, l = this.manager.response.response.docs.length; i < l; i++) {
       var doc = this.manager.response.response.docs[i];
-      $(this.target).append(this.template(doc));
+      if (i == 0) {
+        $(this.docsHeader).append(this.templateHeader(doc));  
+      } 
+      $(this.docsBody).append(this.templateDoc(doc));
     }
   },
 
-  template: function (doc) {
-    var output = '<div><h2>' + doc.ID_VIVIEND + '</h2>';
-    output += '<p id="links_' + doc.ID_VIVIEND + '" class="links"></p>';
-    output += '<p>' + doc.ID_VIVIEND + ' ' + doc.DPTO + '</p></div>';
+  templateHeader: function (doc) {
+    var output = '<tr>';
+    for (column in doc) {
+      output += '<th>' + column + '<th>';
+    }
+    output += '</tr>'
+    return output;
+  },
+
+  templateDoc: function (doc) {
+    var output = '<tr>';
+    for (column in doc) {
+      output += '<td>' + doc[column] + '<td>';
+    }
+    output += '</tr>'
     return output;
   },
 });
