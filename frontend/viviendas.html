@@ -9,11 +9,9 @@
 
     <title>CENSO for HUMANS (Not Yet!)</title>
 
-    <!-- Bootstrap core CSS -->
     <link href="boot/css/bootstrap.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
+    <link href="boot/css/bootstrap-select.min.css" rel="stylesheet">
     <link href="boot/css/justified-nav.css" rel="stylesheet">
-    <!-- Project specific imports-->
     <link href="css/censo.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -33,16 +31,16 @@
           <li class="active"><a href="viviendas.html">Viviendas</a></li>
           <li><a href="hogares.html">Hogares</a></li>
           <li><a href="personas.html">Personas</a></li>
-	  <li><a href="preguntas.html">¿Que preguntar?</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
+	  <li><a href="homeCenso.html">¿Que preguntar?</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
         </ul>
       </div>
 
       <div class="row">
         <div class="col-lg-4">
           <h4>Campo</h2>
-          <select id="field"></select> 
+          <select id="field" class="selectpicker"></select> 
           <h4>Busqueda Actual</h2>
           <ul id="selection" class="filter-list"></ul>
         </div>
@@ -51,7 +49,6 @@
         </div>
       </div>  
 
-      <!-- Example row of columns -->
       <div class="row">
         <div class="col-lg-3">
           <h2 id="title_DPTO"></h2>
@@ -126,6 +123,17 @@
         </div>
       </div>
 
+      <div class="table-responsive results-table">
+        <div id="navigation">
+          <ul id="pager"></ul>
+          <div id="pager-header"></div>
+        </div>
+        <table class="table table-striped table-hover table-condensed">
+          <thead id="docsHeader"></thead>
+          <tbody id="docsBody"></tbody>
+        </table>
+      </div>
+
       <!-- Site footer -->
       <div class="footer">
         <p>&copy; Company 2013</p>
@@ -141,6 +149,7 @@
     <script src="js/jquery/jquery.min.js"></script>
     <script src="js/jquery/jquery-ui.min.js"></script>
     <script src="boot/js/bootstrap.min.js"></script>
+    <script src="boot/js/bootstrap-select.min.js"></script>
     <script src="js/ajax-solr/core/Core.js"></script>
     <script src="js/ajax-solr/core/AbstractManager.js"></script>
     <script src="js/ajax-solr/core/Parameter.js"></script>
@@ -160,6 +169,7 @@
          for (var column in columnValues) {
             $('#title_' + column).text(columnValues[column]);
          }
+         $('.selectpicker').selectpicker();
       });
     </script>
 
