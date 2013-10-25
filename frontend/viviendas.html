@@ -149,6 +149,7 @@
     <script src="js/jquery/jquery-ui.min.js"></script>
     <script src="boot/js/bootstrap.min.js"></script>
     <script src="boot/js/bootstrap-select.min.js"></script>
+    <script src="js/utilities.js"></script>
     <script src="js/ajax-solr/core/Core.js"></script>
     <script src="js/ajax-solr/core/AbstractManager.js"></script>
     <script src="js/ajax-solr/core/Parameter.js"></script>
@@ -161,12 +162,11 @@
     <script src="js/widgets/jquery/PagerWidget.js"></script>
     <script src="js/widgets/ResultWidget.js"></script>
     <script src="js/widgets/ChartWidget.js"></script>
-    <script src="js/utilities.js"></script>
     <script src="js/vivienda-solr.js"></script>
     <script type="text/javascript">
       $(document).ready(function(){
-         for (var column in columnValues) {
-            $('#title_' + column).text(columnValues[column]);
+         for (var column in viviendaFacetDesc) {
+            $('#title_' + column).text(viviendaFacetDesc[column]);
          }
          $('.selectpicker').selectpicker();
       });

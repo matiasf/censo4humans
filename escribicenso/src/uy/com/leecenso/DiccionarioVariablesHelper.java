@@ -8,7 +8,11 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -23,7 +27,7 @@ public class DiccionarioVariablesHelper {
 	public static void main(String[] args) {
 		try {
 			FileInputStream xlsFile = new FileInputStream(new File("/home/guillermo/Documents/data-oktober-fest/DiccionarioDeVariablesRevisado.xls"));
-			BufferedWriter writer = new BufferedWriter(new FileWriter("/home/guillermo/Documents/data-oktober-fest/diccionarioOutput.js", true));
+			BufferedWriter writer = new BufferedWriter(new FileWriter("/home/guillermo/Documents/data-oktober-fest/diccionarioOutput.js", false));
 
 			// Get the workbook instance for XLS file
 			HSSFWorkbook workbook = new HSSFWorkbook(xlsFile);
@@ -31,21 +35,28 @@ public class DiccionarioVariablesHelper {
 			// Get first sheet from the workbook
 			HSSFSheet sheet = workbook.getSheetAt(0);
 			
+			Map<String, String> varCodeNameMap = new HashMap<String, String>();
+			
 			// Iterate through each rows from sheet
 			Iterator<Row> rowIterator = sheet.iterator();
 			while (rowIterator.hasNext()) 
 			{
 				Row row = rowIterator.next();
 				
-				String varCode = getStringValue(row.getCell(0));
-				String varValue = getStringValue(row.getCell(1));	
-				String varValueDesc = getStringValue(row.getCell(2));
+				String varCode = getStringValue(row.getCell(1));
+				String varValue = getStringValue(row.getCell(2));	
+				String varValueDesc = getStringValue(row.getCell(3));
 				
 				//if it's an empty line, escape it:
 				if (!(Strings.isNullOrEmpty(varCode) && Strings.isNullOrEmpty(varValue) && Strings.isNullOrEmpty(varValueDesc))) 
 				{
 					//starts a new variable:
 					if (!Strings.isNullOrEmpty(varCode)) {
+						
+						String varDesc = getStringValue(row.getCell(0));
+						if (!Strings.isNullOrEmpty(varDesc))
+							varCodeNameMap.put(varCode, varDesc);
+						
 						writer.append("}");
 						writer.newLine();
 						
@@ -61,7 +72,18 @@ public class DiccionarioVariablesHelper {
 			}
 			writer.append("}");
 			writer.newLine();
-
+			
+			for (String varCode : varCodeNameMap.keySet()) {
+				writer.append("\t'" + varCode + "': " + varCode + ",");
+				writer.newLine();
+			}
+			
+			writer.newLine();
+			for (String varCode : varCodeNameMap.keySet()) {
+				writer.append("\t'" + varCode + "': '" + varCodeNameMap.get(varCode) + "',");
+				writer.newLine();
+			}
+			
 			xlsFile.close();
 			writer.close();
 

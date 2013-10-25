@@ -9,8 +9,8 @@ AjaxSolr.CurrentSearchWidget = AjaxSolr.AbstractWidget.extend({
 
     var fq = this.manager.store.values('fq');
     for (var i = 0, l = fq.length; i < l; i++) {
-      facetNameDesc = columnValues[fq[i].split(':')[0]];
-      facetValueDesc = getFacetValueDesc(fq[i].split(':')[0], fq[i].split(':')[1]);
+      facetNameDesc = (this.facetDescMap)[fq[i].split(':')[0]];
+      facetValueDesc = getFacetValueDesc((this.facetValuesDescMap), fq[i].split(':')[0], fq[i].split(':')[1]);
       facetNameAndValueDesc = facetNameDesc + ": " + facetValueDesc;
       facetValueDescShort = facetValueDesc.length > 30 ? facetValueDesc.substring(0, 30) + "..." : facetValueDesc;
       links.push($('<button class="btn btn-success btn-sm" data-toggle="tooltip" title="' + facetNameAndValueDesc + '"><span class="glyphicon glyphicon-remove"></span>' + facetValueDescShort +'</button>')

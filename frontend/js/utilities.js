@@ -1375,7 +1375,457 @@ var categoriaDeVivienda = {
 	"10":"Otras combinaciones de materiales",
 };
 
-var facetValuesDescMap = {
+var meses = {
+	"01":"Enero",
+	"02":"Febrero",
+	"03":"Marzo",
+	"04":"Abril",
+	"05":"Mayo",
+	"06":"Junio",
+	"07":"Julio",
+	"08":"Agosto",
+	"09":"Setiembre",
+	"10":"Octubre",
+	"11":"Noviembre",
+	"12":"Diciembre",
+}
+
+var PLANILLA = {
+	"00":"No",
+	"01":"Sí",
+}
+var MA = {
+	"00":"Población censada",
+	"01":"Población imputada en una vivienda particular con moradores ausentes",
+}
+
+var PERPH02 = {
+	"1":"Hombre",
+	"2":"Mujer",
+}
+
+var PERPA01 = {
+	"1":"Jefe/a o persona de referencia",
+	"2":"Esposo/a o compañero/a",
+	"3":"Hijo/a de ambos",
+	"4":"Hijo/a sólo del jefe/a",
+	"5":"Hijo/a del esposo/a o compañero/a",
+	"6":"Yerno/nuera",
+	"7":"Padre/madre",
+	"8":"Suegro/a",
+	"9":"Hermano/a",
+	"10":"Cuñado/a",
+	"11":"Nieto/a",
+	"12":"Otro pariente",
+	"13":"Otro no pariente",
+	"14":"Servicio doméstico o familiar del mismo",
+	"15":"Miembro de hogar colectivo",
+	"88":"No relevado",
+}
+var PERPA02 = {
+	"1":"Sí",
+	"2":"No",
+	"8":"No relevado",
+	"9":"Ignorado",
+}
+var PERPA03 = {
+	"1":"Sí",
+	"2":"No",
+	"8":"No relevado",
+	"9":"Ignorado",
+}
+var PERER01_1 = {
+	"1":"Sí",
+	"2":"No",
+	"8":"No relevado",
+	"9":"Ignorado",
+}
+var PERER01_2 = {
+	"1":"Sí",
+	"2":"No",
+	"8":"No relevado",
+	"9":"Ignorado",
+}
+var PERER01_3 = {
+	"1":"Sí",
+	"2":"No",
+	"8":"No relevado",
+	"9":"Ignorado",
+}
+var PERER01_4 = {
+	"1":"Sí",
+	"2":"No",
+	"8":"No relevado",
+	"9":"Ignorado",
+}
+var PERER01_5 = {
+	"1":"Sí",
+	"2":"No",
+	"8":"No relevado",
+	"9":"Ignorado",
+}
+var PERER02 = {
+	"1":"Afro o Negra",
+	"2":"Asiática o Amarilla",
+	"3":"Blanca",
+	"4":"Indígena",
+	"5":"Otra",
+	"6":"Ninguna (no hay una principal)",
+	"8":"No relevado",
+	"9":"Ignorado",
+}
+var PEREC01 = {
+	"1":"Sí",
+	"2":"No",
+	"8":"No relevado",
+}
+var PEREC02 = {
+	"00":"No corresponde",
+	"8888":"No relevado",
+}
+var PEREC03 = {
+	"01":"Casamiento civil",
+	"02":"Unión libre con pareja de otro sexo",
+	"03":"Unión libre con pareja del mismo sexo",
+	"08":"No relevado",
+}
+var PEREC04 = {
+	"1":"Separado/a de unión libre",
+	"2":"Divorciado/a",
+	"3":"Casado/a (incluye separado y aun no se divorció)",
+	"4":"Viudo/a de casamiento",
+	"5":"Viudo/a de unión libre",
+	"6":"Soltero/a (nunca se casó ni vivió en unión libre)",
+	"8":"No relevado",
+	"9":"Ignorado",
+}
+var PERMI01 = {
+	"1":"En esta localidad o paraje",
+	"2":"En otra localidad o paraje de este departamento",
+	"3":"En otro departamento",
+	"4":"En otro país",
+	"8":"No relevado",
+}
+
+var PERMI02 = {
+	"8888":"No relevado",
+	"9999":"Ignorado",
+}
+
+var PERMI02_1 = {
+	"1":"2010-2011",
+	"2":"2005-2009",
+	"3":"2000-2004",
+	"4":"1995-1999",
+	"5":"1990-1994",
+	"6":"1985-1989",
+	"7":"1980-1984",
+	"8":"1975-1979",
+	"9":"1970-1974",
+	"10":"Antes de 1970",
+	"88":"No relevado",
+	"99":"Ignorado",
+}
+var PERMI05 = {
+	"1":"Siempre residió aquí",
+	"2":"No siempre residió aquí",
+	"8":"No relevado",
+}
+var PERMI05_1 = {
+	"88":"No relevado",
+}
+var PERMI06 = {
+	"1":"En otra localidad o paraje de este departamento",
+	"2":"En otro departamento",
+	"3":"En otro país",
+	"8":"No relevado",
+}
+
+var PERMI07 = {
+	"1":"En esta localidad o paraje",
+	"2":"En otra localidad o paraje de este departamento",
+	"3":"En otro departamento",
+	"4":"En otro país",
+	"8":"No relevado",
+}
+
+var PERED00 = {
+	"1":"Sí, asiste a un centro público",
+	"2":"Sí, asiste a un CAIF",
+	"3":"Sí, asiste a un centro privado",
+	"4":"No asiste",
+	"8":"No relevado",
+}
+var PERED01 = {
+	"1":"Sí, a un establecimiento público",
+	"2":"Sí, a un establecimiento privado",
+	"3":"No asiste pero asistió",
+	"4":"Nunca asistió",
+	"8":"No relevado",
+}
+var PERED02 = {
+	"1":"En esta localidad o paraje",
+	"2":"En otra localidad de este departamento",
+	"3":"En otro departamento",
+	"4":"En otro país",
+	"5":"No corresponde (educación a distancia)",
+	"8":"No relevado",
+}
+
+var PERED03_R = {
+	"00":"No corresponde",
+	"01":"Preescolar",
+	"02":"Primaria común",
+	"03":"Primaria especial",
+	"04":"Ciclo Básico Liceo (1ero a 3ro)",
+	"05":"Ciclo Básico UTU (1ero a 3ro)",
+	"06":"Bachillerato Secundario (4to a 6to)",
+	"07":"Bachillerato UTU (4to a 6to)",
+	"08":"Enseñanza Técnica/Formación Profesional UTU",
+	"09":"Magisterio o Profesorado",
+	"10":"Terciario no universitario",
+	"11":"Universidad o Instituto Universitario (Carrera de grado o Licenciatura)",
+	"12":"Posgrado (Diploma/Maestría/Doctorado)",
+	"88":"No relevado",
+}
+var PERED03_1_R = {
+	"00":"No corresponde",
+	"01":"Preescolar",
+	"02":"Primaria común",
+	"03":"Primaria especial",
+	"04":"Ciclo Básico Liceo (1ero a 3ro)",
+	"05":"Ciclo Básico UTU (1ero a 3ro)",
+	"06":"Bachillerato Secundario (4to a 6to)",
+	"07":"Bachillerato UTU (4to a 6to)",
+	"08":"Enseñanza Técnica/Formación Profesional UTU",
+	"09":"Magisterio o Profesorado",
+	"10":"Terciario no universitario",
+	"11":"Universidad o Instituto Universitario (Carrera de grado o Licenciatura)",
+	"12":"Posgrado (Diploma/Maestría/Doctorado)",
+	"88":"No relevado",
+}
+var PERED03_2_R = {
+	"00":"No corresponde",
+	"01":"Preescolar",
+	"02":"Primaria común",
+	"03":"Primaria especial",
+	"04":"Ciclo Básico (1ero a 3ro)",
+	"05":"Bachillerato",
+	"06":"Educación Técnica",
+	"11":"Terciario sin especificar",
+	"88":"No relevado",
+}
+var PERED04_R = {
+	"00":"No corresponde",
+	"01":"Sí",
+	"02":"No",
+	"08":"No relevado",
+}
+var PERED05_R = {
+	"N°":"Años aprobados",
+	"88":"No relevado",
+}
+var PERED06_R = {
+	"00":"No corresponde",
+	"01":"Maestría completa",
+	"02":"Licenciatura/ Grado universitario completo",
+	"03":"Magisterio/ Profesorado completo",
+	"04":"Bachillerato completo (6° año de Secundaria o UTU)",
+	"05":"Cuarto año de Secundaria completo",
+	"06":"Ciclo Básico completo (3er año de Liceo o UTU)",
+	"07":"Primaria completa",
+	"08":"Ninguna",
+	"88":"No relevado",
+}
+
+var PERED08 = {
+	"01":"Sí",
+	"02":"No",
+	"08":"No relevado",
+}
+var PERAL01 = {
+	"01":"Sí",
+	"02":"No",
+	"08":"No relevado",
+}
+var PERAL02 = {
+	"01":"Sí",
+	"02":"No",
+	"08":"No relevado",
+}
+var PERAL03 = {
+	"01":"Sí",
+	"02":"No",
+	"08":"No relevado",
+}
+var PERAL04 = {
+	"01":"Sí",
+	"02":"No",
+	"08":"No relevado",
+}
+var PERAL05 = {
+	"01":"Sí",
+	"02":"No",
+	"08":"No relevado",
+}
+var PERAL09 = {
+	"01":"En esta localidad, en esta vivienda",
+	"02":"Esta localidad, fuera de esta vivienda",
+	"03":"En otra localidad o paraje de este departamento",
+	"04":"En otro departamento",
+	"05":"En otro país",
+	"06":"Trabajo itinerante (en más de una localidad)",
+	"08":"No relevado",
+}
+
+var PERAL11 = {
+	"01":"Sí",
+	"02":"No",
+	"08":"No relevado",
+}
+var PERAL12 = {
+	"01":"Sí",
+	"02":"No",
+	"08":"No relevado",
+}
+var PERFM01 = {
+	"77":"No corresponde",
+	"88":"No relevado",
+}
+var PERFM01_1 = {
+	"01":"Sì",
+	"02":"No",
+	"77":"No corresponde",
+	"88":"No relevado",
+}
+var PERFM02 = {
+	"77":"No corresponde",
+	"88":"No relevado",
+}
+var PERFM02_1 = {
+	"01":"Sì",
+	"02":"No",
+	"77":"No corresponde",
+	"88":"No relevado",
+}
+var PERFM04_1 = {
+	"7777":"No corresponde",
+	"8888":"No relevado",
+	"9999":"Ignorado",
+}
+var PERFM04_2 = {
+	"Mes":"Mes de nacimiento de último hijo/a  ",
+	"77":"No corresponde",
+	"88":"No relevado",
+	"99":"Ignorado",
+}
+var PERFM05 = {
+	"Año":"Año de nacimiento de primer hijo/a ",
+	"7777":"No corresponde",
+	"8888":"No relevado",
+	"9999":"Ignorado",
+}
+var PERDI01 = {
+	"01":"No tiene dificultad",
+	"02":"Sí, alguna dificultad",
+	"03":"Sí, mucha dificultad",
+	"04":"Sí, no puede hacerlo",
+	"08":"No relevado",
+	"09":"Ignorado",
+}
+var PERDI02 = {
+	"01":"No tiene dificultad",
+	"02":"Sí, alguna dificultad",
+	"03":"Sí, mucha dificultad",
+	"04":"Sí, no puede hacerlo",
+	"08":"No relevado",
+	"09":"Ignorado",
+}
+var PERDI04 = {
+	"01":"No tiene dificultad",
+	"02":"Sí, alguna dificultad",
+	"03":"Sí, mucha dificultad",
+	"04":"Sí, no puede hacerlo",
+	"08":"No relevado",
+	"09":"Ignorado",
+}
+var PERDI05 = {
+	"01":"No tiene dificultad",
+	"02":"Sí, alguna dificultad",
+	"03":"Sí, mucha dificultad",
+	"04":"Sí, no puede hacerlo",
+	"08":"No relevado",
+	"09":"Ignorado",
+}
+var NIVELEDU_R = {
+	"00":"Menor de 4 años",
+	"01":"Preescolar",
+	"02":"Primaria común",
+	"03":"Primaria especial",
+	"04":"Ciclo Básico",
+	"05":"Bachillerato",
+	"06":"Enseñanza Técnica/Formación Profesional UTU",
+	"07":"Magisterio o Profesorado",
+	"08":"Terciario no universitario",
+	"09":"Universidad o similar",
+	"10":"Postgrado (Diploma/Maestría/Doctorado)",
+	"11":"Terciario sin especificar (Planillas)",
+	"12":"Nunca asistió",
+	"13":"Ignorado",
+	"88":"No relevado",
+}
+var AÑOS_ESTUDIO = {
+	"88":"No relevado",
+}
+var POBCOAC = {
+	"01":"Menor de 12 años",
+	"02":"Ocupados",
+	"03":"Desocupados buscan trabajo por primera vez",
+	"04":"Desocupados propiamente dichos",
+	"05":"Inactivos, jubilados o pensionistas",
+	"06":"Inactivos, otra causas",
+	"08":"No relevado",
+}
+var PERFM01_R = {
+	"77":"No corresponde",
+	"88":"No relevado",
+	"99":"Ignorado",
+}
+var PERFM02_R = {
+	"77":"No corresponde",
+	"88":"No relevado",
+	"99":"Ignorado",
+}
+
+/*********************************************/
+/***************** VIVIENDAS *****************/
+/*********************************************/
+var facetsForViviendas = [ 
+	'DPTO', 'DPTOLOC', 'CCZ', 'SP_2010', 'TIPO_VIVIE', 'VIVVO01', 
+	'VIVVO03', 'VIVVO04', 'VIVDV01', 'VIVDV02', 'VIVDV03',  
+	'VIVDV05' , 'VIVDV06', 'VIVDV07', 'VIVHV01', 'CATEVIV'
+];
+
+var viviendaFacetDesc = {
+	'DPTO': 'Departamento',
+	'DPTOLOC': 'Localidad',
+	'TIPO_VIVIE': 'Tipo de Vivienda Resumido',
+	'VIVVO01': 'Tipo de Vivienda',
+	'VIVVO03': 'Condición de Ocupación',
+	'VIVVO04': 'Residentes habituales que no integran el hogar colectivo',
+	'VIVDV01': 'Material predominante en paredes exteriores',
+	'VIVDV02': 'Material predominante de los techos',
+	'VIVDV03': 'Material predominante en los pisos',
+	'VIVDV05': 'Origen del agua',
+	'VIVDV06': 'Llegada de Agua',
+	'VIVDV07': 'Principal medio de alumbrado eléctrico',
+	'VIVHV01': 'Número de hogares que comparten la vivienda',
+	'CATEVIV': 'Categoría de la vivienda',
+	'CCZ': 'Centro Comunal Zonal',
+	'SP_2010': 'Seccional Policial',
+};
+
+var viviendasFacetValuesDescMap = {
 	'DPTO': departamentos, 
 	'DPTOLOC': localidades, 
 	'TIPO_VIVIE': tipoDeViviendaResumido, 
@@ -1392,10 +1842,10 @@ var facetValuesDescMap = {
 	'CATEVIV' : categoriaDeVivienda,
 };
 
-function getFacetValueDesc(facetName, facetValue) {
+function getFacetValueDesc(facetValDescMap, facetName, facetValue) {
 	facetValueDesc = facetValue;
-	if (facetValuesDescMap[facetName] != null) {
-		facetValueDesc = facetValuesDescMap[facetName][facetValue];
+	if (facetValDescMap[facetName] != null) {
+		facetValueDesc = facetValDescMap[facetName][facetValue];
 	}
 	if (typeof facetValueDesc === "undefined" && facetValue == '5555') {
 		facetValueDesc = "Entidad amparada por secreto estadístico";
@@ -1409,48 +1859,168 @@ function getFacetValueDesc(facetName, facetValue) {
 	return facetValueDesc;
 };
 
-var columnValues = {
-	'DPTO': 'Departamento',
-	'DPTOLOC': 'Localidad',
-	'TIPO_VIVIE': 'Tipo de Vivienda Resumido',
-	'VIVVO01': 'Tipo de Vivienda',
-	'VIVVO03': 'Condición de Ocupación',
-	'VIVVO04': 'Residentes habituales que no integran el hogar colectivo',
-	'VIVDV01': 'Material predominante en paredes exteriores',
-	'VIVDV02': 'Material predominante de los techos',
-	'VIVDV03': 'Material predominante en los pisos',
-	'VIVDV05': 'Origen del agua',
-	'VIVDV06': 'Llegada de Agua',
-	'VIVDV07': 'Principal medio de alumbrado eléctrico',
-	'VIVHV01': 'Número de hogares que comparten la vivienda',
-	'CATEVIV': 'Categoría de la vivienda',
-	'CCZ': 'Centro Comunal Zonal',
-	'SP_2010': 'Seccional Policial'
-};
 
+/********************************************/
+/***************** PERSONAS *****************/
+/********************************************/
 
-/************************************************************/
-/************************* PERSONAS *************************/
-/************************************************************/
-
-var meses = {
-	"01":"Enero",
-	"02":"Febrero",
-	"03":"Marzo",
-	"04":"Abril",
-	"05":"Mayo",
-	"06":"Junio",
-	"07":"Julio",
-	"08":"Agosto",
-	"09":"Setiembre",
-	"10":"Octubre",
-	"11":"Noviembre",
-	"12":"Diciembre",
-}
+var facetsForPersonas = [ 
+    'DPTO', 
+    'DPTOLOC', 
+    'CCZ', 'SP_2010', 'TIPO_VIVIE', 'PERPH02',
+    'PERNA01', 'PERNA02MES', 'PERNA02ANO', 'PERPA01', 'PERPA02',
+    'PERPA03', 'PERER01_1', 'PERER01_2', 'PERER01_3', 'PERER01_4',
+    'PERER01_5', 'PERER02', 'PEREC01', 'PEREC03', 'PEREC04', 'PERMI01',
+    'PERMI01_1', 'PERMI01_2', 'PERMI01_3', 'PERMI01_4', 'PERMI20',
+    'PERMI02_1', 'PERMI05', 'PERMI05_1', 'PERMI06_1', 'PERMI06_2',
+    'PERMI06_3', 'PERMI06_4', 'PERMI07', 'PERMI07_1', 'PERMI07_2', 
+    'PERMI07_3', 'PERMI07_4', 'PERED00', 'PERED01', 'PERED02', 
+    'PERED02_1', 'PERED02_2', 'PERED02_3', 'PERED02_4', 'PERED03_R',
+    'PERED03_1', 'PERED03_2', 'PERED04_R', 'PERED06_R', 'PERED08',
+    'NIVELEDU_R', 'PERAL01', 'PERAL02', 'PERAL03', 'PERAL04', 'PERAL05',
+    'PERAL09', 'PERAL09_1', 'PERAL09_2', 'PERAL09_3', 'PERAL11',
+    'PERAL12', 'PERFM01', 'PERFM01_1', 'PERFM02', 'PERFM02_1',
+    'PERDI01', 'PERDI02', 'PERDI04', 'PERDI05', 'POBPCOAC', 'PERFM01_R',
+    'PERFM02_R'
+];
 
 var personasFacetValuesDescMap = {
 	'DPTO': departamentos, 
 	'DPTOLOC': localidades, 
+	'TIPO_VIVIE': tipoDeViviendaResumido, 
 	'VIVVO01': tipoDeVivienda,
-	'PERNA02MES', meses,
+	'PERNA02MES': meses,
+	'PLANILLA': PLANILLA,
+	'MA': MA,
+	'PERPA01': PERPA01,
+	'PERPA02': PERPA02,
+	'PERPA03': PERPA03,
+	'PERPH02': PERPH02,
+	'PERER01_1': PERER01_1,
+	'PERER01_2': PERER01_2,
+	'PERER01_3': PERER01_3,
+	'PERER01_4': PERER01_4,
+	'PERER01_5': PERER01_5,
+	'PERER02': PERER02,
+	'PEREC01': PEREC01,
+	'PEREC02': PEREC02,
+	'PEREC03': PEREC03,
+	'PEREC04': PEREC04,
+	'PERMI01': PERMI01,
+	'PERMI02_1': PERMI02_1,
+	'PERMI05': PERMI05,
+	'PERMI05_1': PERMI05_1,
+	'PERMI06': PERMI06,
+	'PERMI07': PERMI07,
+	'PERED00': PERED00,
+	'PERED01': PERED01,
+	'PERED02': PERED02,
+	'PERED03_R': PERED03_R,
+	'PERED03_1_R': PERED03_1_R,
+	'PERED03_2_R': PERED03_2_R,
+	'PERED04_R': PERED04_R,
+	'PERED05_R': PERED05_R,
+	'PERED06_R': PERED06_R,
+	'PERED08': PERED08,
+	'PERAL01': PERAL01,
+	'PERAL02': PERAL02,
+	'PERAL03': PERAL03,
+	'PERAL04': PERAL04,
+	'PERAL05': PERAL05,
+	'PERAL09': PERAL09,
+	'PERAL11': PERAL11,
+	'PERAL12': PERAL12,
+	'PERFM01': PERFM01,
+	'PERFM01_1': PERFM01_1,
+	'PERFM02': PERFM02,
+	'PERFM02_1': PERFM02_1,
+	'PERFM04_1': PERFM04_1,
+	'PERFM04_2': PERFM04_2,
+	'PERFM05': PERFM05,
+	'PERDI01': PERDI01,
+	'PERDI02': PERDI02,
+	'PERDI04': PERDI04,
+	'PERDI05': PERDI05,
+	'NIVELEDU_R': NIVELEDU_R,
+	'AÑOS_ESTUDIO': AÑOS_ESTUDIO,
+	'POBCOAC': POBCOAC,
+	'PERFM01_R': PERFM01_R,
+	'PERFM02_R': PERFM02_R,
+};
+
+var personasFacetDesc = {
+	'DPTO': 'Departamento',
+	'DPTOLOC': 'Localidad',
+	'TIPO_VIVIE': 'Tipo de Vivienda Resumido',
+	'PERNA02MES' : 'Mes de nacimiento',
+	'PERNA02ANO' : 'Año de nacimiento',
+	'VIVVO01': 'Tipo de Vivienda',
+	'PERAL02': 'Trabajó en casa o ayudó en negocio, cuidado de animales, cultivos o huerta',
+	'PERAL03': 'Trabajo al que volverá',
+	'PERAL01': 'Trabajó por lo menos 1 hora',
+	'PERER01_1': 'Ascendencia afro o negra',
+	'PERAL04': 'Las últimas cuatro semanas buscó trabajo ',
+	'PERER01_3': 'Ascendencia blanca',
+	'PERAL05': 'Ha trabajado antes',
+	'PERER01_2': 'Ascendencia asiática o amarilla',
+	'AÑOS_ESTUDIO': 'Total de años aprobados',
+	'LOC': 'Localidad',
+	'PERFM01_R': 'Hijos nacidos vivos',
+	'PERDI02': 'Dificultad permanente para oír',
+	'PERDI04': 'Dificultad permanente para caminar o subir escalones',
+	'PERAL09': 'Lugar dónde realiza el trabajo',
+	'PERDI05': 'Dificultad permanente para entender y/o aprender',
+	'PERPH02': 'Sexo',
+	'PERED03_1_R': 'Nivel más alto que cursó',
+	'PERED02': 'Ubicacion del centro educativo',
+	'MA': 'Morador ausente',
+	'PERED01': 'Asistencia actual a establecimiento de enseñanza',
+	'PERDI01': 'Dificultad permanente para ver',
+	'PERED00': 'Asistencia actual a centro de educación inicial o preescolar',
+	'SP_2010': 'Seccional policial',
+	'PERED08': 'Sabe leer y escribir',
+	'PERNA01': 'Edad',
+	'PERNA02': 'Mes y año de nacimiento',
+	'PEREC04': 'Estado actual',
+	'PEREC03': 'Tipo de unión',
+	'PEREC01': 'Cónyuge o pareja en el hogar',
+	'CODIGO_CARRERA': 'Área, orientación, curso o carrera que estudia/estudió',
+	'PERED03_R': 'Nivel que cursa actualmente',
+	'PERED06_R': 'Para hacer ese curso se exigia',
+	'PERFM02_R': 'Hijos vivos actualmente',
+	'PERID': 'Número de persona',
+	'PERER01_4': 'Ascendencia indígena',
+	'NIVELEDU_R': 'Máximo nivel educativo alcanzado',
+	'PERER01_5': 'Otra ascendencia ',
+	'PERED04_R': 'Finalizó ese nivel',
+	'PERED05_R': 'Años aprobados en ese nivel',
+	'PERFM01_1': 'Hijos nacidos vivos ignorados',
+	'SEGMENTO': 'Segmento censal',
+	'PLANILLA': 'Vivienda particular  relevada en planillas especiales',
+	'PERFM05': 'Año de nacimiento del primer hijo/a',
+	'PERER02': 'Ascendencia principal',
+	'PERFM02_1': 'Hijos vivos actualmente ignorados',
+	'CCZ': 'Centro comunal zonal (montevideo)',
+	'ID_VIVIENDA': 'Identificación de la vivienda',
+	'PERMI02': 'Año de llegada a Uruguay',
+	'PERMI01': 'Lugar de nacimiento',
+	'PERAL12': 'Quehaceres del hogar',
+	'PERAL11': 'Jubilado o pensionista',
+	'PERFM01': 'Hijos nacidos vivos',
+	'PERMI06': 'Lugar de residencia anterior',
+	'PERMI05': 'Tiempo de residencia sin interrupciones en esta ciudad o localidad',
+	'PERFM02': 'Hijos vivos actualmente',
+	'PERMI07': 'Lugar de residencia cinco años antes',
+	'PERMI02_1': 'Período de llegada a Uruguay',
+	'SECCION': 'Sección censal',
+	'PERPA01': 'Relación de parentesco',
+	'PERFM04_1': 'Mes y año de nacimiento del último hijo/a',
+	'POBCOAC': 'Condición de actividad económica',
+	'BARRIO85': 'Área aproximada a barrio (def. 1895) Montevideo',
+	'VIVID': 'Número de vivienda',
+	'TIPO_VIVIENDA': 'Tipo de vivienda resumido',
+	'PERPA02': 'Madre del nieto/a u otro pariente/no pariente (< 18años) integra el hogar',
+	'PERPA03': 'Padre del nieto/a u otro pariente/no pariente (< 18años) integra el hogar',
+	'HOGID': 'Número de hogar',
+	'PERED03_2_R': 'Nivel más alto cursado (planillas)',
 };

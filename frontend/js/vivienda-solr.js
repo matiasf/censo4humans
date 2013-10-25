@@ -11,22 +11,20 @@ var Manager;
 		docsHeader: '#docsHeader',	    
 	    docsBody: '#docsBody'
 	}));
-
-	var fields = [ 
-		'DPTO', 'DPTOLOC', 'CCZ', 'SP_2010', 'TIPO_VIVIE', 'VIVVO01', 
-		'VIVVO03', 'VIVVO04', 'VIVDV01', 'VIVDV02', 'VIVDV03',  
-		'VIVDV05' , 'VIVDV06', 'VIVDV07', 'VIVHV01', 'CATEVIV'
-	];
-	for (var i = 0, l = fields.length; i < l; i++) {
+	
+	for (var i = 0, l = facetsForViviendas.length; i < l; i++) {
 	  Manager.addWidget(new AjaxSolr.FacetWidget({
-	    id: fields[i],
-	    target: '#' + fields[i],
-	    field: fields[i]
+	    id: facetsForViviendas[i],
+	    target: '#' + facetsForViviendas[i],
+	    field: facetsForViviendas[i],
+	    facetValuesDescMap: viviendasFacetValuesDescMap,
 	  }));
 	}
 	Manager.addWidget(new AjaxSolr.CurrentSearchWidget({
 	  id: 'currentsearch',
 	  target: '#selection',
+	  facetDescMap: viviendaFacetDesc,
+	  facetValuesDescMap: viviendasFacetValuesDescMap,
 	}));
 	Manager.addWidget(new AjaxSolr.PagerWidget({
 	    id: 'pager',
@@ -41,6 +39,8 @@ var Manager;
 	Manager.addWidget(new AjaxSolr.ChartWidget({
 	    id: 'field',
 	    target: '#field',
+	    facetDescMap: viviendaFacetDesc,
+	 	facetValuesDescMap: viviendasFacetValuesDescMap,
 	    chart: new google.visualization.PieChart(document.getElementById('piechart'))
 	}));
 	Manager.init();
@@ -61,7 +61,7 @@ var Manager;
 
 	var params = {
 	    facet: true,
-	    'facet.field': fields,
+	    'facet.field': facetsForViviendas,
 	    'facet.limit': 20,
 	    'facet.mincount': 1,
 	    'f.topics.facet.limit': 50,

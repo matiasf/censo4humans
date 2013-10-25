@@ -27,7 +27,7 @@
 
       <div class="masthead">
         <h3 class="text-muted">CENSO for HUMANS (Not Yet!)</h3>
-	<ul class="nav nav-justified">
+	       <ul class="nav nav-justified">
           <li><a href="homeCenso.html">Home</a></li>
           <li><a href="viviendas.html">Viviendas</a></li>
           <li><a href="hogares.html">Hogares</a></li>
@@ -384,6 +384,7 @@
     <script src="js/jquery/jquery-ui.min.js"></script>
     <script src="boot/js/bootstrap.min.js"></script>
     <script src="boot/js/bootstrap-select.min.js"></script>
+    <script src="js/utilities.js"></script>
     <script src="js/ajax-solr/core/Core.js"></script>
     <script src="js/ajax-solr/core/AbstractManager.js"></script>
     <script src="js/ajax-solr/core/Parameter.js"></script>
@@ -396,12 +397,11 @@
     <script src="js/widgets/jquery/PagerWidget.js"></script>
     <script src="js/widgets/ResultWidget.js"></script>
     <script src="js/widgets/ChartWidget.js"></script>
-    <script src="js/utilities.js"></script>
     <script src="js/personas-solr.js"></script>
     <script type="text/javascript">
       $(document).ready(function(){
-         for (var column in columnValues) {
-            $('#title_' + column).text(columnValues[column]);
+         for (var column in personasFacetDesc) {
+            $('#title_' + column).text(personasFacetDesc[column]);
          }
          $('.selectpicker').selectpicker();
       });
