@@ -46,6 +46,7 @@ var Manager;
 	Manager.addWidget(new AjaxSolr.ChartWidget({
 	    id: 'field',
 	    target: '#field',
+	    targetChart: '#chartType',
 	    chart: new google.visualization.PieChart(document.getElementById('piechart'))
 	}));
 	Manager.init();
