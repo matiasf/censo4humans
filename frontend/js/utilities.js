@@ -1581,7 +1581,7 @@ var PERED03_R = {
 	"12":"Posgrado (Diploma/Maestría/Doctorado)",
 	"88":"No relevado",
 }
-var PERED03_1_R = {
+var PERED03_1 = {
 	"00":"No corresponde",
 	"01":"Preescolar",
 	"02":"Primaria común",
@@ -1597,7 +1597,7 @@ var PERED03_1_R = {
 	"12":"Posgrado (Diploma/Maestría/Doctorado)",
 	"88":"No relevado",
 }
-var PERED03_2_R = {
+var PERED03_2 = {
 	"00":"No corresponde",
 	"01":"Preescolar",
 	"02":"Primaria común",
@@ -1770,7 +1770,7 @@ var NIVELEDU_R = {
 var AÑOS_ESTUDIO = {
 	"88":"No relevado",
 }
-var POBCOAC = {
+var POBPCOAC = {
 	"01":"Menor de 12 años",
 	"02":"Ocupados",
 	"03":"Desocupados buscan trabajo por primera vez",
@@ -1844,10 +1844,10 @@ function getFacetValueDesc(facetValDescMap, facetName, facetValue) {
 		facetValueDesc = "Entidad amparada por secreto estadístico";
 	}
 	else if (typeof facetValueDesc === "undefined") {
-		facetValueDesc = "no relevado";
+		facetValueDesc = "No definido";
 	}
 	else if (facetValueDesc === 'NULL') {
-		facetValueDesc = "no corresponde";
+		facetValueDesc = "No corresponde";
 	}
 	return facetValueDesc;
 };
@@ -1867,13 +1867,11 @@ var facetsForPersonas = [
     'PERMI01_1', 'PERMI01_2', 'PERMI01_3', 'PERMI01_4', 'PERMI02',
     'PERMI02_1', 'PERMI05', 'PERMI05_1', 'PERMI07', 'PERMI07_1', 'PERMI07_2', 
     'PERMI07_3', 'PERMI07_4', 'PERED00', 'PERED01', 'PERED02', 
-    'PERED02_1', 'PERED02_2', 'PERED02_3', 'PERED02_4', 'PERED03_R',
-    'PERED03_1', 'PERED03_2', 'PERED04_R', 'PERED06_R', 'PERED08',
+    'PERED03_R', 'PERED03_1', 'PERED03_2', 'PERED04_R', 'PERED06_R', 'PERED08',
     'NIVELEDU_R', 'PERAL01', 'PERAL02', 'PERAL03', 'PERAL04', 'PERAL05',
-    'PERAL09', 'PERAL09_1', 'PERAL09_2', 'PERAL09_3', 'PERAL11',
-    'PERAL12', 'PERFM01', 'PERFM01_1', 'PERFM02', 'PERFM02_1',
-    'PERDI01', 'PERDI02', 'PERDI04', 'PERDI05', 'POBCOAC', 'PERFM01_R',
-    'PERFM02_R'
+    'PERAL09', 'PERAL11', 'PERAL12', 'PERFM01', 'PERFM01_1', 'PERFM02', 
+    'PERFM02_1', 'PERDI01', 'PERDI02', 'PERDI04', 'PERDI05', 'POBPCOAC', 
+	'PERFM01_R', 'PERFM02_R'
 ];
 
 var personasFacetValuesDescMap = {
@@ -1907,8 +1905,8 @@ var personasFacetValuesDescMap = {
 	'PERED01': PERED01,
 	'PERED02': PERED02,
 	'PERED03_R': PERED03_R,
-	'PERED03_1_R': PERED03_1_R,
-	'PERED03_2_R': PERED03_2_R,
+	'PERED03_1': PERED03_1,
+	'PERED03_2': PERED03_2,
 	'PERED04_R': PERED04_R,
 	'PERED05_R': PERED05_R,
 	'PERED06_R': PERED06_R,
@@ -1934,7 +1932,7 @@ var personasFacetValuesDescMap = {
 	'PERDI05': PERDI05,
 	'NIVELEDU_R': NIVELEDU_R,
 	'AÑOS_ESTUDIO': AÑOS_ESTUDIO,
-	'POBCOAC': POBCOAC,
+	'POBPCOAC': POBPCOAC,
 	'PERFM01_R': PERFM01_R,
 	'PERFM02_R': PERFM02_R,
 };
@@ -1962,7 +1960,7 @@ var personasFacetDesc = {
 	'PERAL09': 'Lugar dónde realiza el trabajo',
 	'PERDI05': 'Dificultad permanente para entender y/o aprender',
 	'PERPH02': 'Sexo',
-	'PERED03_1_R': 'Nivel más alto que cursó',
+	'PERED03_1': 'Nivel más alto que cursó',
 	'PERED02': 'Ubicacion del centro educativo',
 	'MA': 'Morador ausente',
 	'PERED01': 'Asistencia actual a establecimiento de enseñanza',
@@ -2007,14 +2005,14 @@ var personasFacetDesc = {
 	'SECCION': 'Sección censal',
 	'PERPA01': 'Relación de parentesco',
 	'PERFM04_1': 'Mes y año de nacimiento del último hijo/a',
-	'POBCOAC': 'Condición de actividad económica',
+	'POBPCOAC': 'Condición de actividad económica',
 	'BARRIO85': 'Área aproximada a barrio (def. 1895) Montevideo',
 	'VIVID': 'Número de vivienda',
 	'TIPO_VIVIENDA': 'Tipo de vivienda resumido',
 	'PERPA02': 'Madre del nieto/a u otro pariente/no pariente (< 18años) integra el hogar',
 	'PERPA03': 'Padre del nieto/a u otro pariente/no pariente (< 18años) integra el hogar',
 	'HOGID': 'Número de hogar',
-	'PERED03_2_R': 'Nivel más alto cursado (planillas)',
+	'PERED03_2': 'Nivel más alto cursado (planillas)',
 };
 
 var optionChart = {
