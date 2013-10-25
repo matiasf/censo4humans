@@ -64,3 +64,7 @@ ul.filter-list li {
 .results-table {
   overflow-x: auto;
 }
+
+.header {
+  margin-top: 60px;
+}
