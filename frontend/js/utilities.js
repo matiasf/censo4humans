@@ -1424,3 +1424,9 @@ var columnValues = {
 	'CCZ': 'Centro Comunal Zonal',
 	'SP_2010': 'Seccional Policial'
 };
+
+var optionChart = {
+		
+		"1":"Torta",
+		"2":"Columnas"
+};
