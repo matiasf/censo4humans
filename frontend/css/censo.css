@@ -68,3 +68,8 @@ ul.filter-list li {
 .header {
   margin-top: 30px;
 }
+
+.chart-loader{
+    margin-top: 200px;
+    margin-left: 350px;
+}

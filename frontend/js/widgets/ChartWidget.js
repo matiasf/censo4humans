@@ -33,8 +33,13 @@
 	    	Manager.doRequest();
 		});
 	},
+
+	beforeRequest: function () {
+	    $('#piechart').html($("<img class='chart-loader'>").attr('src', 'images/ajax-loader.gif'));
+	  },
 	
 	afterRequest: function () {
+		$('#piechart').empty();
 	    if ($(this.target).val()) {
 	    	switch ($(this.targetChart).val()){
 	    	case "1":
