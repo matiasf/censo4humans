@@ -1507,11 +1507,6 @@ var PERMI01 = {
 	"8":"No relevado",
 }
 
-var PERMI02 = {
-	"8888":"No relevado",
-	"9999":"Ignorado",
-}
-
 var PERMI02_1 = {
 	"1":"2010-2011",
 	"2":"2005-2009",
@@ -1531,9 +1526,7 @@ var PERMI05 = {
 	"2":"No siempre residió aquí",
 	"8":"No relevado",
 }
-var PERMI05_1 = {
-	"88":"No relevado",
-}
+
 var PERMI06 = {
 	"1":"En otra localidad o paraje de este departamento",
 	"2":"En otro departamento",
@@ -1871,16 +1864,15 @@ var facetsForPersonas = [
     'PERNA01', 'PERNA02MES', 'PERNA02ANO', 'PERPA01', 'PERPA02',
     'PERPA03', 'PERER01_1', 'PERER01_2', 'PERER01_3', 'PERER01_4',
     'PERER01_5', 'PERER02', 'PEREC01', 'PEREC03', 'PEREC04', 'PERMI01',
-    'PERMI01_1', 'PERMI01_2', 'PERMI01_3', 'PERMI01_4', 'PERMI20',
-    'PERMI02_1', 'PERMI05', 'PERMI05_1', 'PERMI06_1', 'PERMI06_2',
-    'PERMI06_3', 'PERMI06_4', 'PERMI07', 'PERMI07_1', 'PERMI07_2', 
+    'PERMI01_1', 'PERMI01_2', 'PERMI01_3', 'PERMI01_4', 'PERMI02',
+    'PERMI02_1', 'PERMI05', 'PERMI05_1', 'PERMI07', 'PERMI07_1', 'PERMI07_2', 
     'PERMI07_3', 'PERMI07_4', 'PERED00', 'PERED01', 'PERED02', 
     'PERED02_1', 'PERED02_2', 'PERED02_3', 'PERED02_4', 'PERED03_R',
     'PERED03_1', 'PERED03_2', 'PERED04_R', 'PERED06_R', 'PERED08',
     'NIVELEDU_R', 'PERAL01', 'PERAL02', 'PERAL03', 'PERAL04', 'PERAL05',
     'PERAL09', 'PERAL09_1', 'PERAL09_2', 'PERAL09_3', 'PERAL11',
     'PERAL12', 'PERFM01', 'PERFM01_1', 'PERFM02', 'PERFM02_1',
-    'PERDI01', 'PERDI02', 'PERDI04', 'PERDI05', 'POBPCOAC', 'PERFM01_R',
+    'PERDI01', 'PERDI02', 'PERDI04', 'PERDI05', 'POBCOAC', 'PERFM01_R',
     'PERFM02_R'
 ];
 
@@ -1909,7 +1901,6 @@ var personasFacetValuesDescMap = {
 	'PERMI01': PERMI01,
 	'PERMI02_1': PERMI02_1,
 	'PERMI05': PERMI05,
-	'PERMI05_1': PERMI05_1,
 	'PERMI06': PERMI06,
 	'PERMI07': PERMI07,
 	'PERED00': PERED00,
@@ -1992,6 +1983,7 @@ var personasFacetDesc = {
 	'PERER01_4': 'Ascendencia indígena',
 	'NIVELEDU_R': 'Máximo nivel educativo alcanzado',
 	'PERER01_5': 'Otra ascendencia ',
+	'PERMI05_1' : 'Cantidad de años que hace que reside en esta localidad',
 	'PERED04_R': 'Finalizó ese nivel',
 	'PERED05_R': 'Años aprobados en ese nivel',
 	'PERFM01_1': 'Hijos nacidos vivos ignorados',
