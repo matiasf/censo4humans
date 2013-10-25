@@ -40,6 +40,7 @@ var Manager;
 	    id: 'field',
 	    target: '#field',
 	    facetDescMap: viviendaFacetDesc,
+	    targetChart: '#chartType',
 	 	facetValuesDescMap: viviendasFacetValuesDescMap,
 	    chart: new google.visualization.PieChart(document.getElementById('piechart'))
 	}));

@@ -2024,3 +2024,9 @@ var personasFacetDesc = {
 	'HOGID': 'Número de hogar',
 	'PERED03_2_R': 'Nivel más alto cursado (planillas)',
 };
+
+var optionChart = {
+		
+		"1":"Torta",
+		"2":"Columnas"
+};

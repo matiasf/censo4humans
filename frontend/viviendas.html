@@ -27,25 +27,30 @@
 
       <div class="masthead">
         <h3 class="text-muted">CENSO for HUMANS (Not Yet!)</h3>
-        <ul class="nav nav-justified">
-          <li><a href="homeCenso.html">Home</a></li>
-          <li class="active"><a href="viviendas.html">Viviendas</a></li>
-          <li><a href="hogares.html">Hogares</a></li>
-          <li><a href="personas.html">Personas</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <ul class="nav nav-justified">
+            <li><a href="homeCenso.html">Home</a></li>
+            <li><a href="personas.html">Personas</a></li>
+            <li class="active"><a href="viviendas.html">Viviendas</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
 
       <div class="row">
-        <div class="col-lg-4">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3 header">
+          <h4>Gráfica</h4>
+          <select id="chartType" class="selectpicker"></select>
           <h4>Campo</h2>
           <select id="field" class="selectpicker"></select> 
-          <h4>Busqueda Actual</h2>
+          <h4>Búsqueda Actual</h2>
           <ul id="selection" class="filter-list"></ul>
         </div>
-        <div class="col-lg-8">
+        <div class="col-lg-7">
           <div id="piechart" style="width: 900px; height: 500px;"></div>
+        </div>
+        <div class="col-lg-1">
         </div>
       </div>  
 
@@ -136,7 +141,7 @@
 
       <!-- Site footer -->
       <div class="footer">
-        <p>&copy; Company 2013</p>
+        <p>&copy; Censo 4 Humans - 2013</p>
       </div>
 
     </div> <!-- /container -->

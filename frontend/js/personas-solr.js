@@ -40,6 +40,7 @@ var Manager;
 	    id: 'field',
 	    target: '#field',
 	    facetDescMap: personasFacetDesc,
+	    targetChart: '#chartType',
 	    facetValuesDescMap: personasFacetValuesDescMap,
 	    chart: new google.visualization.PieChart(document.getElementById('piechart'))
 	}));
