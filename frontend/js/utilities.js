@@ -1397,10 +1397,13 @@ function getFacetValueDesc(facetName, facetValue) {
 	if (facetValuesDescMap[facetName] != null) {
 		facetValueDesc = facetValuesDescMap[facetName][facetValue];
 	}
-	if (typeof facetValueDesc === "undefined") {
+	if (typeof facetValueDesc === "undefined" && facetValue == '5555') {
+		facetValueDesc = "Entidad amparada por secreto estadístico";
+	}
+	else if (typeof facetValueDesc === "undefined") {
 		facetValueDesc = "no relevado";
 	}
-	if (facetValueDesc === 'NULL') {
+	else if (facetValueDesc === 'NULL') {
 		facetValueDesc = "no corresponde";
 	}
 	return facetValueDesc;
@@ -1423,4 +1426,31 @@ var columnValues = {
 	'CATEVIV': 'Categoría de la vivienda',
 	'CCZ': 'Centro Comunal Zonal',
 	'SP_2010': 'Seccional Policial'
+};
+
+
+/************************************************************/
+/************************* PERSONAS *************************/
+/************************************************************/
+
+var meses = {
+	"01":"Enero",
+	"02":"Febrero",
+	"03":"Marzo",
+	"04":"Abril",
+	"05":"Mayo",
+	"06":"Junio",
+	"07":"Julio",
+	"08":"Agosto",
+	"09":"Setiembre",
+	"10":"Octubre",
+	"11":"Noviembre",
+	"12":"Diciembre",
+}
+
+var personasFacetValuesDescMap = {
+	'DPTO': departamentos, 
+	'DPTOLOC': localidades, 
+	'VIVVO01': tipoDeVivienda,
+	'PERNA02MES', meses,
 };

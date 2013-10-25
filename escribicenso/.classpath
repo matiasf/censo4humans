@@ -17,5 +17,6 @@
 	<classpathentry kind="lib" path="lib/wstx-asl-3.2.7.jar"/>
 	<classpathentry kind="lib" path="lib/zookeeper-3.4.5.jar"/>
 	<classpathentry kind="lib" path="lib/guava-15.0.jar"/>
+	<classpathentry kind="lib" path="lib/poi-3.9-20121203.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
