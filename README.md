@@ -43,9 +43,9 @@ Setup Project
 
 References:
 
-Solr: http://lucene.apache.org/solr/
-PlayFramework: http://www.playframework.com/
-Scala IDE: http://scala-ide.org/
-Ajax-Solr: https://github.com/evolvingweb/ajax-solr
+* Solr: http://lucene.apache.org/solr/
+* PlayFramework: http://www.playframework.com/
+* Scala IDE: http://scala-ide.org/
+* Ajax-Solr: https://github.com/evolvingweb/ajax-solr
 
 
