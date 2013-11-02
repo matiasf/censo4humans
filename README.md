@@ -39,9 +39,13 @@ Setup Project
 
 	[c4hfrontend] $ run
 
+===================
+
 References:
 
 Solr: http://lucene.apache.org/solr/
 PlayFramework: http://www.playframework.com/
 Scala IDE: http://scala-ide.org/
 Ajax-Solr: https://github.com/evolvingweb/ajax-solr
+
+
