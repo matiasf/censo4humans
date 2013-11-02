@@ -1,0 +1,13 @@
+@(selected: String)
+
+<div class="masthead">
+	<img src="@routes.Assets.at("images/censo4humans-logo-small.png")" style="width: 300px" />
+	<ul class="nav nav-justified">
+		<li @if(selected == "home") {class="active"}><a href="/">Home</a></li>
+		<li @if(selected == "personas") {class="active"}><a href="/personas">Personas</a></li>
+		<li @if(selected == "viviendas") {class="active"}><a href="/viviendas">Viviendas</a></li>
+		<li @if(selected == "hogares") {class="active"}><a href="/hogares">Hogares</a></li>
+		<li @if(selected == "about") {class="active"}><a href="/about">About</a></li>
+		<li @if(selected == "contact") {class="active"}><a href="/contact">Contact</a></li>
+	</ul>
+</div>

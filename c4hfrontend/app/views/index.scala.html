@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 	
-	@header()
+	@sections.header()
 	
 	<body>
 		<div class="container">
 	
-			@tabs()
+			@sections.tabs("home")
 	
 			<button class="btn btn-large btn-block" type="button"
 				onclick="window.location.href='viviendas.html?DPTO-01_VIVVO03-7|VIVVO01'">¿Cuántas
@@ -23,7 +23,7 @@
 				del CENSO, no brindo datos sobre la información de la vivienda por
 				departamento?</button>
 	
-			@footer()
+			@sections.footer()
 	
 		</div>
 		<!-- /container -->	

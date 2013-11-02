@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 	
-	@header()
+	@sections.header()
 	
 	<body>
 		<div class="container">
 	
-			@tabs()
+			@sections.tabs("hogares")
 	
       <div class="row">
         <div class="col-lg-1">
@@ -243,12 +243,12 @@
         </table>
       </div>
 	
-			@footer()
+			@sections.footer()
 	
 		</div>
 		
 		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-		@scripts()
+		@sections.scripts()
 	    <script src="@routes.Assets.at("boot/js/bootstrap-select.min.js")"></script>
 	    <script src="@routes.Assets.at("js/utilities.js")"></script>
 	    <script src="@routes.Assets.at("js/ajax-solr/core/Core.js")"></script>
