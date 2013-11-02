@@ -26,8 +26,8 @@ public class DiccionarioVariablesHelper {
 
 	public static void main(String[] args) {
 		try {
-			FileInputStream xlsFile = new FileInputStream(new File("/home/guillermo/Documents/data-oktober-fest/DiccionarioDeVariablesRevisado.xls"));
-			BufferedWriter writer = new BufferedWriter(new FileWriter("/home/guillermo/Documents/data-oktober-fest/diccionarioOutput.js", false));
+			FileInputStream xlsFile = new FileInputStream(new File("DiccionarioDeVariablesRevisado.xls"));
+			BufferedWriter writer = new BufferedWriter(new FileWriter("diccionarioOutput.js", false));
 
 			// Get the workbook instance for XLS file
 			HSSFWorkbook workbook = new HSSFWorkbook(xlsFile);
@@ -36,6 +36,9 @@ public class DiccionarioVariablesHelper {
 			HSSFSheet sheet = workbook.getSheetAt(0);
 			
 			Map<String, String> varCodeNameMap = new HashMap<String, String>();
+			DecimalFormat df = new DecimalFormat("0");
+			
+			System.out.println("Starting creation of content...");
 			
 			// Iterate through each rows from sheet
 			Iterator<Row> rowIterator = sheet.iterator();
@@ -43,9 +46,9 @@ public class DiccionarioVariablesHelper {
 			{
 				Row row = rowIterator.next();
 				
-				String varCode = getStringValue(row.getCell(1));
-				String varValue = getStringValue(row.getCell(2));	
-				String varValueDesc = getStringValue(row.getCell(3));
+				String varCode = getStringValue(row.getCell(1), df);
+				String varValue = getStringValue(row.getCell(2), df);	
+				String varValueDesc = getStringValue(row.getCell(3), df);
 				
 				//if it's an empty line, escape it:
 				if (!(Strings.isNullOrEmpty(varCode) && Strings.isNullOrEmpty(varValue) && Strings.isNullOrEmpty(varValueDesc))) 
@@ -53,7 +56,7 @@ public class DiccionarioVariablesHelper {
 					//starts a new variable:
 					if (!Strings.isNullOrEmpty(varCode)) {
 						
-						String varDesc = getStringValue(row.getCell(0));
+						String varDesc = getStringValue(row.getCell(0), df);
 						if (!Strings.isNullOrEmpty(varDesc))
 							varCodeNameMap.put(varCode, varDesc);
 						
@@ -73,32 +76,53 @@ public class DiccionarioVariablesHelper {
 			writer.append("}");
 			writer.newLine();
 			
+			writer.append("var facetsForHogares = [");
+			writer.newLine();
+			for (String varCode : varCodeNameMap.keySet()) {
+				writer.append("\t'" + varCode + "',");
+				writer.newLine();
+			}
+			writer.append("];");
+			writer.newLine();
+			
+			writer.append("var hogaresFacetValuesDescMap = {");
+			writer.newLine();
 			for (String varCode : varCodeNameMap.keySet()) {
 				writer.append("\t'" + varCode + "': " + varCode + ",");
 				writer.newLine();
 			}
+			writer.append("};");
+			writer.newLine();
 			
+			writer.append("var hogaresFacetDesc = {");
 			writer.newLine();
 			for (String varCode : varCodeNameMap.keySet()) {
 				writer.append("\t'" + varCode + "': '" + varCodeNameMap.get(varCode) + "',");
 				writer.newLine();
 			}
+			writer.append("};");
+			writer.newLine();
 			
 			xlsFile.close();
 			writer.close();
+			
+			System.out.println("Ceation of content finished");
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		} 
 	}
 
-	protected static String getStringValue(Cell cell) 
+	protected static String getStringValue(Cell cell, DecimalFormat df) 
 	{
 		String result = "";
+		
 		switch (cell.getCellType()) {
 			case Cell.CELL_TYPE_NUMERIC:
-				DecimalFormat df = new DecimalFormat("00");
-				result = df.format(Double.valueOf(cell.getNumericCellValue()).intValue());
+				if (df != null)
+					result = df.format(Double.valueOf(cell.getNumericCellValue()).intValue());
+				else
+					result = String.valueOf(cell.getNumericCellValue());
 				break;
 			case Cell.CELL_TYPE_STRING:
 				result = cell.getStringCellValue();

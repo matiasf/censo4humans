@@ -11,27 +11,20 @@ var Manager;
 		docsHeader: '#docsHeader',	    
 	    docsBody: '#docsBody'
 	}));
-
-	var fields = [ 
-	    'DPTO', 'DPTOLOC', 'CCZ', 'SP_2010', 'TIPO_VIVIE', 'HOGTE01',
-	    'HOGTE02', 'HOGTE03', 'HOGHD00', 'HOGHD01', 'HOGSH01', 'HOGSH02',
-	    'HOGSH03', 'HOGSC01', 'HOGSC02', 'HOGCA01', 'HOGCE01', 'HOGCE02',
-	    'HOGCE03', 'HOGCE04', 'HOGCE05', 'HOGCE06', 'HOGCE07', 'HOGCE08',
-	    'HOGCE09', 'HOGCE10', 'HOGCE11', 'HOGCE12', 'HOGCE13', 'HOGPR01',
-	    'HOGPR02', 'HOGPR03', 'NBI_MAT', 'NBI_HAC', 'NBI_COC', 'NBI_VIV',
-	    'NBI_AGUA', 'NBI_SANEA', 'NBI_ELECT', 'NBI_CALEF', 'NBI_REFRIG',
-	    'NBI_CALENT', 'NBI_CONFOR', 'NBI_EDUCAC', 'NBI_CANTID'
-	];
-	for (var i = 0, l = fields.length; i < l; i++) {
+	
+	for (var i = 0, l = facetsForHogares.length; i < l; i++) {
 	  Manager.addWidget(new AjaxSolr.FacetWidget({
-	    id: fields[i],
-	    target: '#' + fields[i],
-	    field: fields[i]
+	    id: facetsForHogares[i],
+	    target: '#' + facetsForHogares[i],
+	    field: facetsForHogares[i],
+	    facetValuesDescMap: hogaresFacetValuesDescMap,
 	  }));
 	}
 	Manager.addWidget(new AjaxSolr.CurrentSearchWidget({
 	  id: 'currentsearch',
 	  target: '#selection',
+	  facetDescMap: hogaresFacetDesc,
+	  facetValuesDescMap: hogaresFacetValuesDescMap,
 	}));
 	Manager.addWidget(new AjaxSolr.PagerWidget({
 	    id: 'pager',
@@ -46,7 +39,9 @@ var Manager;
 	Manager.addWidget(new AjaxSolr.ChartWidget({
 	    id: 'field',
 	    target: '#field',
+	    facetDescMap: hogaresFacetDesc,
 	    targetChart: '#chartType',
+	 	facetValuesDescMap: hogaresFacetValuesDescMap,
 	    chart: new google.visualization.PieChart(document.getElementById('piechart'))
 	}));
 	Manager.init();
@@ -67,7 +62,7 @@ var Manager;
 
 	var params = {
 	    facet: true,
-	    'facet.field': fields,
+	    'facet.field': facetsForHogares,
 	    'facet.limit': 20,
 	    'facet.mincount': 1,
 	    'f.topics.facet.limit': 50,

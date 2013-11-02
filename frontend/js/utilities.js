@@ -1786,6 +1786,244 @@ var PERFM02_R = {
 	"99":"Ignorado",
 }
 
+var HOGTE01 = {
+	"1":"Propietario",
+	"2":"Integrante de una cooperativa de vivienda",
+	"3":"Inquilino o arrendatario",
+	"4":"Usufructuario u ocupante",
+	"8":"No relevado",
+}
+var HOGTE02 = {
+	"1":"De la vivienda y el terreno y la está pagando",
+	"2":"De la vivienda y el terreno y ya la pagó",
+	"3":"Solamente de la vivienda y la está pagando",
+	"4":"Solamente de la vivienda y ya la pagó",
+	"8":"No relevado",
+}
+var HOGTE03 = {
+	"1":"Por relación de dependencia (trabajo)",
+	"2":"Gratuito, otorgada por el BPS",
+	"3":"Gratuito (se la prestaron)",
+	"4":"Sin permiso del propietario",
+	"8":"No relevado",
+}
+var HOGHD00 = {
+	"Nº":"Cantidad de habitaciones residenciales",
+	"88":"No relevado",
+}
+var HOGHD01 = {
+	"Nº":"Cantidad de habitaciones para dormir",
+	"88":"No relevado",
+}
+var HOGSH01 = {
+	"1":"Sí, con cisterna",
+	"2":"Sí, sin cisterna",
+	"3":"No",
+	"8":"No relevado",
+}
+var HOGSH02 = {
+	"1":"De uso exclusivo del hogar",
+	"2":"Compartido con otro hogar",
+	"8":"No relevado",
+}
+var HOGSH03 = {
+	"1":"Red general",
+	"2":"Fosa séptica, pozo negro",
+	"3":"Entubado hacia el arroyo",
+	"4":"Otro (superficie, hueco en el suelo)",
+	"8":"No relevado",
+}
+var HOGSC01 = {
+	"1":"Sí, privado de este hogar",
+	"2":"Sí, compartido con otros hogares",
+	"3":"No",
+	"8":"No relevado",
+}
+var HOGSC02 = {
+	"1":"Electricidad",
+	"2":"Gas por cañería",
+	"3":"Supergás",
+	"4":"Queroseno",
+	"5":"Leña o carbón",
+	"6":"Otra",
+	"7":"Ninguna, no cocina",
+	"8":"No relevado",
+}
+var HOGCA01 = {
+	"1":"Electricidad",
+	"2":"Leña",
+	"3":"Gas por cañería",
+	"4":"Supergás",
+	"5":"Queroseno",
+	"6":"Gas oil",
+	"7":"Fuel-oil",
+	"8":"Otra",
+	"9":"Ninguna",
+	"88":"No relevado",
+}
+var HOGCE01 = {
+	"1":"Sí",
+	"2":"No",
+	"8":"No relevado",
+}
+var HOGCE02 = {
+	"1":"Sí",
+	"2":"No",
+	"8":"No relevado",
+}
+var HOGCE03 = {
+	"1":"Sí",
+	"2":"No",
+	"8":"No relevado",
+}
+var HOGCE04 = {
+	"1":"Sí",
+	"2":"No",
+	"8":"No relevado",
+}
+var HOGCE05 = {
+	"1":"Sí",
+	"2":"No",
+	"8":"No relevado",
+}
+var HOGCE06 = {
+	"Nº":"Cantidad deTV color",
+	"88":"No relevado",
+}
+var HOGCE07 = {
+	"1":"Sí",
+	"2":"No",
+	"8":"No relevado",
+}
+var HOGCE08 = {
+	"1":"Sí",
+	"2":"No",
+	"8":"No relevado",
+}
+var HOGCE09 = {
+	"Nº":"Cantidad de XO del Plan Ceibal",
+	"88":"No relevado",
+}
+var HOGCE10 = {
+	"Nº":"Cantidad de PC o laptops",
+	"88":"No relevado",
+}
+var HOGCE11 = {
+	"1":"Sí",
+	"2":"No",
+	"8":"No relevado",
+}
+var HOGCE12 = {
+	"Nº":"Cantidad de ciclomotores o motocicletas",
+	"88":"No relevado",
+}
+var HOGCE13 = {
+	"Nº":"Cantidad de automóviles o camionetas",
+	"88":"No relevado",
+}
+var HOGPR01 = {
+	"Nº":"Cantidad total de personas",
+}
+var HOGPR02 = {
+	"Nº":"Cantidad de hombres",
+}
+var HOGPR03 = {
+	"Nº":"Cantidad de mujeres",
+}
+var NBI_MAT = {
+	"0":"Sin NBI",
+	"1":"Con NBI",
+	"8":"No relevado",
+	"9":"No corresponde (Vivienda colectiva)",
+	"5555":"Anonimizado por secreto estadístico",
+}
+var NBI_HAC = {
+	"0":"Sin NBI",
+	"1":"Con NBI",
+	"8":"No relevado",
+	"9":"No corresponde (Vivienda colectiva)",
+	"5555":"Anonimizado por secreto estadístico",
+}
+var NBI_COC = {
+	"0":"Sin NBI",
+	"1":"Con NBI",
+	"8":"No relevado",
+	"9":"No corresponde (Vivienda colectiva)",
+	"5555":"Anonimizado por secreto estadístico",
+}
+var NBI_VIV = {
+	"0":"Sin NBI",
+	"1":"Con NBI",
+	"8":"No relevado",
+	"9":"No corresponde (Vivienda colectiva)",
+	"5555":"Anonimizado por secreto estadístico",
+}
+var NBI_AGUA = {
+	"0":"Sin NBI",
+	"1":"Con NBI",
+	"8":"No relevado",
+	"9":"No corresponde (Vivienda colectiva)",
+	"5555":"Anonimizado por secreto estadístico",
+}
+var NBI_SANEA = {
+	"0":"Sin NBI",
+	"1":"Con NBI",
+	"8":"No relevado",
+	"9":"No corresponde (Vivienda colectiva)",
+	"5555":"Anonimizado por secreto estadístico",
+}
+var NBI_ELECT = {
+	"0":"Sin NBI",
+	"1":"Con NBI",
+	"8":"No relevado",
+	"9":"No corresponde (Vivienda colectiva)",
+	"5555":"Anonimizado por secreto estadístico",
+}
+var NBI_CALEF = {
+	"0":"Sin NBI",
+	"1":"Con NBI",
+	"8":"No relevado",
+	"9":"No corresponde (Vivienda colectiva)",
+	"5555":"Anonimizado por secreto estadístico",
+}
+var NBI_REFRIG = {
+	"0":"Sin NBI",
+	"1":"Con NBI",
+	"8":"No relevado",
+	"9":"No corresponde (Vivienda colectiva)",
+	"5555":"Anonimizado por secreto estadístico",
+}
+var NBI_CALENT = {
+	"0":"Sin NBI",
+	"1":"Con NBI",
+	"8":"No relevado",
+	"9":"No corresponde (Vivienda colectiva)",
+	"5555":"Anonimizado por secreto estadístico",
+}
+var NBI_CONFOR = {
+	"0":"Sin NBI",
+	"1":"Con NBI",
+	"8":"No relevado",
+	"9":"No corresponde (Vivienda colectiva)",
+	"5555":"Anonimizado por secreto estadístico",
+}
+var NBI_EDUCAC = {
+	"0":"Sin NBI",
+	"1":"Con NBI",
+	"8":"No relevado",
+	"9":"No corresponde (Vivienda colectiva)",
+	"5555":"Anonimizado por secreto estadístico",
+}
+var NBI_CANTID = {
+	"0":"Sin NBI",
+	"1":"Una NBI",
+	"2":"Dos NBI",
+	"3":"Tres o más NBI",
+	"8":"No relevado",
+	"9":"No corresponde (Vivienda colectiva)",
+	"5555":"Anonimizado por secreto estadístico",
+}
+
 /*********************************************/
 /***************** VIVIENDAS *****************/
 /*********************************************/
@@ -1837,7 +2075,7 @@ function getFacetValueDesc(facetValDescMap, facetName, facetValue) {
 		facetValueDesc = facetValDescMap[facetName][facetValue];
 	}
 	if (typeof facetValueDesc === "undefined" && facetValue == '5555') {
-		facetValueDesc = "Entidad amparada por secreto estadístico";
+		facetValueDesc = "Anonimizado por secreto estadístico";
 	}
 	else if (typeof facetValueDesc === "undefined") {
 		facetValueDesc = "No definido";
@@ -1848,6 +2086,139 @@ function getFacetValueDesc(facetValDescMap, facetName, facetValue) {
 	return facetValueDesc;
 };
 
+/********************************************/
+/***************** HOGARES *****************/
+/********************************************/
+
+var facetsForHogares = [
+	'DPTO', 'DPTOLOC', 'CCZ', 'SP_2010', 'TIPO_VIVIE',
+	'NBI_SANEA', 
+	'HogCE13',
+	'NBI_SANEA',
+	'HOGCE13',
+	'NBI_AGUA',
+	'NBI_CONFOR',
+	'HOGCE10',
+	'HOGPR01',
+	'HOGPR02',
+	'HOGPR03',
+	'HOGCE11',
+	'HOGCE12',
+	'HOGTE01',
+	'HOGTE02',
+	'HOGTE03',
+	'NBI_VIV',
+	'NBI_REFRIG',
+	'HOGSC01',
+	'HOGSC02',
+	'NBI_CALENT',
+	'HOGHD00',
+	'HOGCE08',
+	'NBI_ELECT',
+	'HOGHD01',
+	'HOGCE09',
+	'HOGCE06',
+	'HOGCE07',
+	'HOGCE04',
+	'NBI_MAT',
+	'HOGCE05',
+	'NBI_COC',
+	'HOGCE02',
+	'HOGCE03',
+	'NBI_HAC',
+	'HOGCE01',
+	'NBI_CANTID',
+	'HOGCA01',
+	'NBI_CALEF',
+	'HOGSH01',
+	'HOGSH02',
+	'NBI_EDUCAC',
+	'HOGSH03',
+];
+
+var hogaresFacetValuesDescMap = {
+	'DPTO': departamentos, 
+	'DPTOLOC': localidades, 
+	'TIPO_VIVIE': tipoDeViviendaResumido, 
+	'NBI_SANEA': NBI_SANEA,
+	'NBI_AGUA': NBI_AGUA,
+	'NBI_CONFOR': NBI_CONFOR,
+	'HOGCE11': HOGCE11,
+	'HOGTE01': HOGTE01,
+	'HOGTE02': HOGTE02,
+	'HOGTE03': HOGTE03,
+	'NBI_VIV': NBI_VIV,
+	'NBI_REFRIG': NBI_REFRIG,
+	'HOGSC01': HOGSC01,
+	'HOGSC02': HOGSC02,
+	'NBI_CALENT': NBI_CALENT,
+	'HOGCE08': HOGCE08,
+	'NBI_ELECT': NBI_ELECT,
+	'HOGCE07': HOGCE07,
+	'HOGCE04': HOGCE04,
+	'NBI_MAT': NBI_MAT,
+	'HOGCE05': HOGCE05,
+	'NBI_COC': NBI_COC,
+	'HOGCE02': HOGCE02,
+	'HOGCE03': HOGCE03,
+	'NBI_HAC': NBI_HAC,
+	'HOGCE01': HOGCE01,
+	'NBI_CANTID': NBI_CANTID,
+	'HOGCA01': HOGCA01,
+	'NBI_CALEF': NBI_CALEF,
+	'HOGSH01': HOGSH01,
+	'HOGSH02': HOGSH02,
+	'NBI_EDUCAC': NBI_EDUCAC,
+	'HOGSH03': HOGSH03,
+};
+
+var hogaresFacetDesc = {
+	'DPTO': 'Departamento',
+	'DPTOLOC': 'Localidad',
+	'TIPO_VIVIE': 'Tipo de Vivienda Resumido',
+	'CCZ': 'Centro Comunal Zonal',
+	'SP_2010': 'Seccional Policial',
+	'NBI_SANEA': 'NBI saneamiento',
+	'HOGCE13': 'Automóviles o camionetas',
+	'NBI_AGUA': 'NBI Agua',
+	'NBI_CONFOR': 'NBI Confort',
+	'HOGCE10': 'PC o laptops',
+	'HOGPR01': 'Cantidad total de personas',
+	'HOGPR02': 'Cantidad de hombres',
+	'HOGPR03': 'Cantidad de mujeres',
+	'HOGCE11': 'Acceso a internet',
+	'HOGCE12': 'Ciclomotores o motocicletas',
+	'HOGTE01': 'Tenencia de la vivienda',
+	'HOGTE02': 'Características propietario',
+	'HOGTE03': 'Características usufructuario u ocupante',
+	'NBI_VIV': 'NBI vivienda decorosa',
+	'NBI_REFRIG': 'NBI refrigeración de alimentos',
+	'HOGSC01': 'Lugar para cocinar',
+	'HOGSC02': 'Fuente de energía para cocinar',
+	'NBI_CALENT': 'NBI agua caliente para baño',
+	'HOGHD00': 'Habitaciones totales',
+	'HOGCE08': 'Teléfono celular',
+	'NBI_ELECT': 'NBI electricidad',
+	'HOGHD01': 'Habitaciones para dormir',
+	'HOGCE09': 'XO del Plan Ceibal',
+	'HOGCE06': 'TV Color',
+	'HOGCE07': 'Teléfono fijo',
+	'HOGCE04': 'Máquina secadora de ropa',
+	'NBI_MAT': 'NBI materialidad',
+	'HOGCE05': 'Radio',
+	'NBI_COC': 'NBI espacio apropiado para cocinar',
+	'HOGCE02': 'Calentador instantáneo de agua',
+	'HOGCE03': 'Refrigerador o freezer',
+	'NBI_HAC': 'NBI espacio habitable',
+	'HOGCE01': 'Calefón, termofón o caldereta',
+	'NBI_CANTID': 'Cantidad de NBI',
+	'HOGCA01': 'Fuente de energía para calefaccionar',
+	'NBI_CALEF': 'NBI calefacción de ambientes',
+	'HOGSH01': 'Disponibilidad de baño',
+	'HOGSH02': 'Uso del baño',
+	'NBI_EDUCAC': 'NBI educación',
+	'HOGSH03': 'Evacuación del servicio sanitario',
+};
 
 /********************************************/
 /***************** PERSONAS *****************/
@@ -2005,7 +2376,6 @@ var personasFacetDesc = {
 };
 
 var optionChart = {
-		
-		"1":"Torta",
-		"2":"Columnas"
+	"1":"Torta",
+	"2":"Columnas"
 };

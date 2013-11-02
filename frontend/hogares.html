@@ -26,32 +26,35 @@
     <div class="container">
 
       <div class="masthead">
-        <h3 class="text-muted">Censo4Humans</h3>
-	       <ul class="nav nav-justified">
+        <img src="images/censo4humans-logo-small.png" style="width: 300px" />
+         <ul class="nav nav-justified">
           <li><a href="homeCenso.html">Home</a></li>
+          <li><a href="personas.html">Personas</a></li>
           <li><a href="viviendas.html">Viviendas</a></li>
           <li class="active"><a href="hogares.html">Hogares</a></li>
-          <li><a href="personas.html">Personas</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
 
       <div class="row">
-        <div class="col-lg-4">
-          <h4>Grafica</h4>
-      	  <select id="chartType" class="selectpicker"></select>
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3 header">
+          <h4>Gráfica</h4>
+          <select id="chartType" class="selectpicker"></select>
           <h4>Campo</h2>
           <select id="field" class="selectpicker"></select> 
-          <h4>Busqueda Actual</h2>
+          <h4>Búsqueda Actual</h2>
           <ul id="selection" class="filter-list"></ul>
         </div>
-        <div class="col-lg-8">
+        <div class="col-lg-7">
           <div id="piechart" style="width: 900px; height: 500px;"></div>
+        </div>
+        <div class="col-lg-1">
         </div>
       </div>
 
-      <!-- Example row of columns -->
       <div class="row">
         <div class="col-lg-3">
           <h2 id="title_DPTO"></h2>
@@ -181,24 +184,6 @@
       </div>
       <div class="row">
         <div class="col-lg-3">
-          <h2 id="title_HOGCE13"></h2>
-          <div class="tagcloud" id="HOGCE13"></div>
-        </div>
-        <div class="col-lg-3">
-          <h2 id="title_HOGCE10"></h2>
-          <div class="tagcloud" id="HOGCE10"></div>
-        </div>
-        <div class="col-lg-3">
-          <h2 id="title_HOGPR01"></h2>
-        <div class="tagcloud" id="HOGPR01"></div>
-        </div>
-        <div class="col-lg-3">
-          <h2 id="title_HOGPR02"></h2>
-        <div class="tagcloud" id="HOGPR02"></div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-3">
           <h2 id="title_HOGPR03"></h2>
           <div class="tagcloud" id="HOGPR03"></div>
         </div>
@@ -253,12 +238,26 @@
       </div>
       <div class="row">
         <div class="col-lg-3">
-          <h2 id="title_NBI_EDUCAC"></h2>
-          <div class="tagcloud" id="NBI_EDUCAC"></div>
+          <h2 id="title_HOGCE13"></h2>
+          <div class="tagcloud" id="HOGCE13"></div>
+        </div>
+        <div class="col-lg-3">
+          <h2 id="title_HOGPR01"></h2>
+          <div class="tagcloud" id="HOGPR01"></div>
+        </div>
+        <div class="col-lg-3">
+          <h2 id="title_HOGPR02"></h2>
+          <div class="tagcloud" id="HOGPR02"></div>
         </div>
         <div class="col-lg-3">
           <h2 id="title_NBI_CANTID"></h2>
           <div class="tagcloud" id="NBI_CANTID"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3">
+          <h2 id="title_NBI_EDUCAC"></h2>
+          <div class="tagcloud" id="NBI_EDUCAC"></div>
         </div>
       </div>
 
@@ -275,7 +274,7 @@
 
       <!-- Site footer -->
       <div class="footer">
-        <p>&copy; Company 2013</p>
+        <p>&copy; Censo 4 Humans - 2013</p>
       </div>
 
     </div> <!-- /container -->
@@ -288,6 +287,7 @@
     <script src="js/jquery/jquery-ui.min.js"></script>
     <script src="boot/js/bootstrap.min.js"></script>
     <script src="boot/js/bootstrap-select.min.js"></script>
+    <script src="js/utilities.js"></script>
     <script src="js/ajax-solr/core/Core.js"></script>
     <script src="js/ajax-solr/core/AbstractManager.js"></script>
     <script src="js/ajax-solr/core/Parameter.js"></script>
@@ -300,12 +300,11 @@
     <script src="js/widgets/jquery/PagerWidget.js"></script>
     <script src="js/widgets/ResultWidget.js"></script>
     <script src="js/widgets/ChartWidget.js"></script>
-    <script src="js/utilities.js"></script>
     <script src="js/hogares-solr.js"></script>
     <script type="text/javascript">
       $(document).ready(function(){
-         for (var column in columnValues) {
-            $('#title_' + column).text(columnValues[column]);
+         for (var column in hogaresFacetDesc) {
+            $('#title_' + column).text(hogaresFacetDesc[column]);
          }
          $('.selectpicker').selectpicker();
       });
