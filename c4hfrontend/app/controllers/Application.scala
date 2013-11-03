@@ -9,15 +9,15 @@ object Application extends Controller {
     Ok(views.html.index())
   }
   
-  def personas = Action {
+  def personas(question: String) = Action {
     Ok(views.html.personas())
   }
   
-  def viviendas = Action {
+  def viviendas(question: String) = Action {
     Ok(views.html.viviendas())
   }
   
-  def hogares = Action {
+  def hogares(question: String) = Action {
     Ok(views.html.hogares())
   }
   

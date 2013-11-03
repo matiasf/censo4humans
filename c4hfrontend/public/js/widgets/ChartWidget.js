@@ -3,14 +3,10 @@
 	start: 0,
 	
 	init: function() {
-	    var query = '';
 	    var sfield = '';
-	    if (window.location.search.substring(1)) {
-			query = window.location.search.substring(1);
-	    }
-	    if (query) {
-			sfield = query.split('|')[1];
-	    }
+	    if (document.URL.indexOf('@') !== -1) {
+	    	sfield = document.URL.split('/')[document.URL.split('/').length-1].split('@')[1];
+		}
 	    
 	    for(var column in (this.facetDescMap)) {
 			if(column == sfield) {

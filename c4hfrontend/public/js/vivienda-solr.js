@@ -48,14 +48,14 @@ var Manager;
 	Manager.store.addByValue('q', '*:*');
 
 	var query = '';
-	if (window.location.search.substring(1)) {
-	    query = window.location.search.substring(1);
+	if (document.URL.indexOf('@') !== -1) {
+		query = document.URL.split('/')[document.URL.split('/').length-1];
 	}
-	query = query.split('|')[0];
+	query = query.split('@')[0];
 	if (query) {
 	    var qfields = query.split('_');
 	    for (var i = 0; i < qfields.length; i++) {
-		Manager.store.addByValue('fq', qfields[i].split('-')[0] + ':' + qfields[i].split('-')[1]);
+	    	Manager.store.addByValue('fq', qfields[i].split('-')[0] + ':' + qfields[i].split('-')[1]);
 	    }
 	}	
 	google.load("visualization", "1", {packages:["corechart"]});

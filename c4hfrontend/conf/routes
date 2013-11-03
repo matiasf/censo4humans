@@ -4,9 +4,12 @@
 
 # Home page
 GET     /                           controllers.Application.home
-GET     /personas                   controllers.Application.personas
-GET     /viviendas                  controllers.Application.viviendas
-GET     /hogares                  	controllers.Application.hogares
+GET     /personas                   controllers.Application.personas(question = "")
+GET     /personas/:question         controllers.Application.personas(question)
+GET     /viviendas                  controllers.Application.viviendas(question = "")
+GET     /viviendas/:question        controllers.Application.viviendas(question)
+GET     /hogares                    controllers.Application.hogares(question = "")
+GET     /hogares/:question          controllers.Application.hogares(question)
 GET     /contact                  	controllers.Application.contact
 GET     /about                  	controllers.Application.about
 

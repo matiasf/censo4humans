@@ -1,5 +1,11 @@
+# Data files of indexes
 solr-index/viviendas/data
 solr-index/hogares/data
 solr-index/personas/data
+
+# Class and backupt files
 *.class
 *~
+
+# Unnecesary play files
+c4hfrontend/.cache
