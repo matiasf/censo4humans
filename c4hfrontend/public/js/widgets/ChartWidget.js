@@ -63,7 +63,7 @@
 					var options = {
 				        region: 'UY',
 				        resolution: 'provinces',
-				        colorAxis: {colors: ['#f8e358', 'orange', 'red', 'purple']},
+				        colorAxis: {colors: ['#f8e358', 'red']},
 				        width: 700
 				    };
 					this.chart.draw(google.visualization.arrayToDataTable(arrayData), options);
