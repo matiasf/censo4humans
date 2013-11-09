@@ -1,7 +1,7 @@
 package controllers
 
-import play.api._
-import play.api.mvc._
+import play.api.mvc.Action
+import play.api.mvc.Controller
 
 object Application extends Controller {
 
@@ -14,7 +14,7 @@ object Application extends Controller {
   }
   
   def viviendas(question: String) = Action {
-    Ok(views.html.viviendas())
+    Ok(views.html.viviendas(models.Question.all))
   }
   
   def hogares(question: String) = Action {

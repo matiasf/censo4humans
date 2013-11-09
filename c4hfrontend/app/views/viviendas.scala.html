@@ -1,3 +1,4 @@
+@(questions: List[Question])
 <!DOCTYPE html>
 <html lang="en">
 	
@@ -12,12 +13,27 @@
         <div class="col-lg-1">
         </div>
         <div class="col-lg-3 header">
-        	<button class="btn btn-primary">Guardar Consulta</button>
+          <button class="btn btn-primary save-question">Guardar Consulta</button>
+          <input placeholder="Type something…" type="text" class="question-text">
+          <p class="question-warning">
+          </p>
+              <div class="btn-group">
+		    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+Mis preguntas
+<span class="caret"></span>
+</a>
+		    <ul class="dropdown-menu question-list">
+			@for(question <- questions) {
+			 	 <li><a href='/@question.query'>@question.question</a></li>
+				}
+		    <!-- dropdown menu links -->
+		    </ul>
+		    </div>
           <h4>Gráfica</h4>
           <select id="chartType" class="selectpicker"></select>
-          <h4>Campo</h2>
+          <h4>Campo</h4>
           <select id="field" class="selectpicker"></select> 
-          <h4>Búsqueda Actual</h2>
+          <h4>Búsqueda Actual</h4>
           <ul id="selection" class="filter-list"></ul>
         </div>
         <div class="col-lg-7">
@@ -133,6 +149,7 @@
 	    <script src="@routes.Assets.at("js/widgets/ResultWidget.js")"></script>
 	    <script src="@routes.Assets.at("js/widgets/ChartWidget.js")"></script>
 	    <script src="@routes.Assets.at("js/vivienda-solr.js")"></script>
+	    <script src="@routes.Assets.at("js/questions.js")"></script>
 	    <script type="text/javascript">
 	      $(document).ready(function(){
 	         for (var column in viviendaFacetDesc) {

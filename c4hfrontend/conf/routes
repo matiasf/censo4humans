@@ -2,16 +2,19 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Home page
-GET     /                           controllers.Application.home
-GET     /personas                   controllers.Application.personas(question = "")
-GET     /personas/:question         controllers.Application.personas(question)
-GET     /viviendas                  controllers.Application.viviendas(question = "")
-GET     /viviendas/:question        controllers.Application.viviendas(question)
-GET     /hogares                    controllers.Application.hogares(question = "")
-GET     /hogares/:question          controllers.Application.hogares(question)
-GET     /contact                  	controllers.Application.contact
-GET     /about                  	controllers.Application.about
+# Page Managment
+GET     /                           			controllers.Application.home
+GET     /personas                   			controllers.Application.personas(question = "")
+GET     /personas/:question         			controllers.Application.personas(question)
+GET     /viviendas                  			controllers.Application.viviendas(question = "")
+GET     /viviendas/:question        			controllers.Application.viviendas(question)
+GET     /hogares                    			controllers.Application.hogares(question = "")
+GET     /hogares/:question          			controllers.Application.hogares(question)
+GET     /contact                  				controllers.Application.contact
+GET     /about                  				controllers.Application.about
+
+# Question Managment
+POST	/questions/:user/:question/$query<.*>  	controllers.Question.newQuestion(user, question, query)
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET     /assets/*file               			controllers.Assets.at(path="/public", file)
