@@ -269,6 +269,13 @@
 	            $('#title_' + column).text(hogaresFacetDesc[column]);
 	         }
 	         $('.selectpicker').selectpicker();
+	         
+	         $(function () {
+				$.scrollUp({
+					animation: 'fade',
+					scrollImg: { active: true, type: 'background', src: 'assets/images/top.png' }
+				});
+			 });
 	      });
 	    </script>
 		<!-- /container -->	
