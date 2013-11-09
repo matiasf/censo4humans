@@ -1767,9 +1767,6 @@ var NIVELEDU_R = {
 	"13":"Ignorado",
 	"88":"No relevado",
 }
-var AÑOS_ESTUDIO = {
-	"88":"No relevado",
-}
 var POBPCOAC = {
 	"1":"Menor de 12 años",
 	"2":"Ocupados",
@@ -2292,7 +2289,6 @@ var personasFacetValuesDescMap = {
 	'PERDI04': PERDI04,
 	'PERDI05': PERDI05,
 	'NIVELEDU_R': NIVELEDU_R,
-	'AÑOS_ESTUDIO': AÑOS_ESTUDIO,
 	'POBPCOAC': POBPCOAC,
 };
 
@@ -2310,7 +2306,6 @@ var personasFacetDesc = {
 	'PERER01_3': 'Ascendencia blanca',
 	'PERAL05': 'Ha trabajado antes',
 	'PERER01_2': 'Ascendencia asiática o amarilla',
-	'AÑOS_ESTUDIO': 'Total de años aprobados',
 	'LOC': 'Localidad',
 	'PERFM01_R': 'Hijos nacidos vivos',
 	'PERDI02': 'Dificultad permanente para oír',

@@ -4,7 +4,7 @@ AjaxSolr.ResultWidget = AjaxSolr.AbstractWidget.extend({
   start: 0,
 
   beforeRequest: function () {
-    $(this.docsBody).html($('<img>').attr('src', 'images/ajax-loader.gif'));
+    $(this.docsBody).html($('<img>').attr('src', 'assets/images/ajax-loader.gif'));
   },
 
   afterRequest: function () {

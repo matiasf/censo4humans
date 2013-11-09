@@ -2374,5 +2374,6 @@ var personasFacetDesc = {
 
 var optionChart = {
 	"1":"Torta",
-	"2":"Columnas"
+	"2":"Columnas",
+	"3":"Mapa"
 };
