@@ -9,7 +9,7 @@ app.Questions = (function () {
 	/*************************/	
 	var createURLQuestion = function() {
 		var filtersApplied = Manager.store.params.fq;
-		var questionString = '/viviendas/';
+		var questionString = document.URL.split('/')[3];
 		if (typeof filtersApplied != 'undefined') {
 			for(var i=0; i < filtersApplied.length; i++) {
 				questionString += filtersApplied[i].value.split(':')[0] + '-' + filtersApplied[i].value.split(':')[1];
@@ -27,7 +27,6 @@ app.Questions = (function () {
 	/*************************/
 	var onSaveQuestions = function(){
 		if ($el.find('.question-text').val()) {
-			//FIXME: var tableName = document.URL.split('/')[document.URL.split('/').length - 1];
 			var http = location.protocol;
 			var slashes = http.concat("//");
 			var host = slashes.concat(window.location.hostname).concat(':'.concat(location.port));
