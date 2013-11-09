@@ -31,34 +31,45 @@
 	},
 
 	beforeRequest: function () {
-	    $('#piechart').html($("<img class='chart-loader'>").attr('src', 'images/ajax-loader.gif'));
-	  },
+	    $('#piechart').html($("<img class='chart-loader'>").attr('src', 'assets/images/ajax-loader.gif'));
+	},
 	
 	afterRequest: function () {
 		$('#piechart').empty();
 	    if ($(this.target).val()) {
-	    	switch ($(this.targetChart).val()){
-	    	case "1":
-	    		this.chart = new google.visualization.PieChart(document.getElementById('piechart'));
-	    		var arrayData = [[$(this.target).val() , 'Cantidad']];
-				for (var facet in this.manager.response.facet_counts.facet_fields[$(this.target).val()]) {
-			    	arrayData.push([getFacetValueDesc(this.facetValuesDescMap, $(this.target).val(),facet), parseInt(this.manager.response.facet_counts.facet_fields[$(this.target).val()][facet])]);
-				};
-				this.chart.draw(google.visualization.arrayToDataTable(arrayData));
-				break;
-	    	case "2":
-	    		this.chart = new google.visualization.ColumnChart(document.getElementById('piechart'));
-	    		var arrayData = [[$(this.target).val() , 'Cantidad']];
-				for (var facet in this.manager.response.facet_counts.facet_fields[$(this.target).val()]) {
-			    	arrayData.push([getFacetValueDesc(this.facetValuesDescMap, $(this.target).val(),facet), parseInt(this.manager.response.facet_counts.facet_fields[$(this.target).val()][facet])]);
-				};
-				this.chart.draw(google.visualization.arrayToDataTable(arrayData));
-	    		break;
-	    	default:
-	    		
+	    	switch ($(this.targetChart).val()) {
+		    	case "1":
+		    		this.chart = new google.visualization.PieChart(document.getElementById('piechart'));
+		    		var arrayData = [[$(this.target).val() , 'Cantidad']];
+					for (var facet in this.manager.response.facet_counts.facet_fields[$(this.target).val()]) {
+				    	arrayData.push([getFacetValueDesc(this.facetValuesDescMap, $(this.target).val(),facet), parseInt(this.manager.response.facet_counts.facet_fields[$(this.target).val()][facet])]);
+					};
+					this.chart.draw(google.visualization.arrayToDataTable(arrayData));
+					break;
+		    	case "2":
+		    		this.chart = new google.visualization.ColumnChart(document.getElementById('piechart'));
+		    		var arrayData = [[$(this.target).val() , 'Cantidad']];
+					for (var facet in this.manager.response.facet_counts.facet_fields[$(this.target).val()]) {
+				    	arrayData.push([getFacetValueDesc(this.facetValuesDescMap, $(this.target).val(),facet), parseInt(this.manager.response.facet_counts.facet_fields[$(this.target).val()][facet])]);
+					};
+					this.chart.draw(google.visualization.arrayToDataTable(arrayData));
+		    		break;
+		    	case "3":
+		    		this.chart = new google.visualization.GeoChart(document.getElementById('piechart'));
+		    		var arrayData = [[$(this.target).val() , 'Cantidad']];
+					for (var facet in this.manager.response.facet_counts.facet_fields[$(this.target).val()]) {
+				    	arrayData.push([getFacetValueDesc(this.facetValuesDescMap, $(this.target).val(),facet), parseInt(this.manager.response.facet_counts.facet_fields[$(this.target).val()][facet])]);
+					};
+					var options = {
+				        region: 'UY',
+				        resolution: 'provinces',
+				        colorAxis: {colors: ['#f8e358', 'orange', 'red', 'purple']},
+				        width: 700
+				    };
+					this.chart.draw(google.visualization.arrayToDataTable(arrayData), options);
+		    		break;
 	    	}
 	    }
 	}
-    });
-    
+});
 })(jQuery);
