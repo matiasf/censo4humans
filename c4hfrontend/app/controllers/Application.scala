@@ -10,7 +10,7 @@ object Application extends Controller {
   }
   
   def personas(question: String) = Action {
-    Ok(views.html.personas())
+    Ok(views.html.personas(models.Question.all))
   }
   
   def viviendas(question: String) = Action {
@@ -18,7 +18,7 @@ object Application extends Controller {
   }
   
   def hogares(question: String) = Action {
-    Ok(views.html.hogares())
+    Ok(views.html.hogares(models.Question.all))
   }
   
   def contact = Action {

@@ -1,3 +1,4 @@
+@(questions: List[Question])
 <!DOCTYPE html>
 <html lang="en">
 	
@@ -11,15 +12,7 @@
       <div class="row">
         <div class="col-lg-1">
         </div>
-        <div class="col-lg-3 header">
-          <button class="btn btn-primary save-question">Guardar Consulta</button>
-          <h4>Gráfica</h4>
-          <select id="chartType" class="selectpicker"></select>
-          <h4>Campo</h2>
-          <select id="field" class="selectpicker"></select> 
-          <h4>Búsqueda Actual</h2>
-          <ul id="selection" class="filter-list"></ul>
-        </div>
+        @sections.sidegraph(questions)
         <div class="col-lg-8">
           <div id="piechart" style="width: 780px; height: 500px;"></div>
         </div>

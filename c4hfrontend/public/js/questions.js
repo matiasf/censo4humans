@@ -9,7 +9,7 @@ app.Questions = (function () {
 	/*************************/	
 	var createURLQuestion = function() {
 		var filtersApplied = Manager.store.params.fq;
-		var questionString = document.URL.split('/')[3];
+		var questionString = '/' + document.URL.split('/')[3] + '/';
 		if (typeof filtersApplied != 'undefined') {
 			for(var i=0; i < filtersApplied.length; i++) {
 				questionString += filtersApplied[i].value.split(':')[0] + '-' + filtersApplied[i].value.split(':')[1];
@@ -18,7 +18,7 @@ app.Questions = (function () {
 				}
 			}
 		}		
-		questionString += '@DPTO';
+		questionString += '@' + $el.find('#field').val();
 		return questionString;
 	}
 	
