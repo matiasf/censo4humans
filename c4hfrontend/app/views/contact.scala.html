@@ -1,3 +1,4 @@
+@(implicit request: play.api.mvc.RequestHeader)
 <!DOCTYPE html>
 <html lang="en">
 	
@@ -6,7 +7,7 @@
 	<body>
 		<div class="container">
 	
-			@sections.tabs("contact")
+			@sections.tabs("contact", request)
 
 	
 			@sections.footer()

@@ -1,3 +1,4 @@
+@(implicit request: play.api.mvc.RequestHeader)
 <!DOCTYPE html>
 <html lang="en">
 	
@@ -6,7 +7,7 @@
 	<body>
 		<div class="container">
 	
-			@sections.tabs("home")
+			@sections.tabs("home", request)
 	
 			<button class="btn btn-large btn-block" type="button"
 				onclick="window.location.href='viviendas/DPTO-01_VIVVO03-7&#64;VIVVO01'">¿Cuántas
