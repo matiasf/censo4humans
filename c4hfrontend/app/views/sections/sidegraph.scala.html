@@ -1,21 +1,25 @@
-@(questions: List[Question])
+@(request: play.api.mvc.RequestHeader)
 
 <div class="col-lg-3 header">
-	<button class="btn btn-primary save-question">Guardar Consulta</button>
-	<input placeholder="Type something…" type="text" class="question-text">
-	<p class="question-warning"></p>
-	<div class="btn-group">
-		<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-			Mis preguntas
-			<span class="caret"></span>
-		</a>
-		<ul class="dropdown-menu question-list">
-			@for(question <- questions) {
-				<li><a href='/@question.query'>@question.question</a></li>
-			}
-			<!-- dropdown menu links -->
-		</ul>
-	</div>
+	@if(!(request.session.get("token") == null || request.session.get("token").isEmpty)) {	
+		<form class="form-inline" onsubmit="return false">
+			<div class="form-group">
+				<button class="btn btn-danger save-question glyphicon glyphicon-floppy-save" data-toggle="tooltip" title="Guardar"></button>
+			</div>
+			<div class="form-group">
+				<input placeholder="Nombre de la pregunta ..." type="text" class="question-text form-control">
+			</div>
+		</form>	
+		<p class="question-warning"></p>
+		<div class="btn-group">
+			<button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+				Mis preguntas
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu question-list">
+			</ul>
+		</div>
+	}
 	<h4>Gráfica</h4>
 	<select id="chartType" class="selectpicker"></select>
 	<h4>Campo</h4>

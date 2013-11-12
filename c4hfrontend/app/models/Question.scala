@@ -25,8 +25,9 @@ object Question {
       }
   }
 
-  def all(): List[Question] = DB.withConnection { implicit c =>
-    SQL("select * from question").as(question *)
+  def all(user: String): List[Question] = DB.withConnection { implicit c =>
+    SQL("select * from question where user = {user}").on(
+      'user -> user).as(question *)
   }
 
   def create(user: String, question: String, query: String) {

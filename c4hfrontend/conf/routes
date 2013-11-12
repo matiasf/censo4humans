@@ -15,6 +15,12 @@ GET     /about                  				controllers.Application.about
 
 # Question Managment
 POST	/questions/:user/:question/$query<.*>  	controllers.Question.newQuestion(user, question, query)
+GET		/questions/:user						controllers.Question.myQuestions(user)
+
+# Twiter OAuth Managment
+GET		/twitter/auth							controllers.TwitterLogin.authenticate
+POST	/twitter/auth							controllers.TwitterLogin.authenticate
+GET		/twitter/info							controllers.TwitterLogin.twitterInfo
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               			controllers.Assets.at(path="/public", file)

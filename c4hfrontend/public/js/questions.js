@@ -3,6 +3,7 @@ var app = app || {};
 app.Questions = (function () {
 	var $el = $(".container");
 	var saveQuestionURL = "/questions/";
+	var getTwitterInfoURL = "/twitter/info"
 	
 	/*************************/
 	/** Auxiliary Funcitons **/
@@ -22,6 +23,12 @@ app.Questions = (function () {
 		return questionString;
 	}
 	
+	var getHostURL = function() {
+		var http = location.protocol;
+		var slashes = http.concat("//");
+		return slashes.concat(window.location.hostname).concat(':'.concat(location.port));
+	}
+	
 	/*************************/
 	/*** Events Callbacks ****/
 	/*************************/
@@ -29,21 +36,24 @@ app.Questions = (function () {
 		if ($el.find('.question-text').val()) {
 			var http = location.protocol;
 			var slashes = http.concat("//");
-			var host = slashes.concat(window.location.hostname).concat(':'.concat(location.port));
-			$.post(host.concat(saveQuestionURL.concat("user_id").
-					concat('/' + $el.find('.question-text').val() + createURLQuestion())) , function (data) {
-				var quesionSlot = $el.find('.question-list');
-				quesionSlot.empty();
-				$el.find('.question-warning').empty();
-				for (var i=0; i < data.length; i++) {
-					quesionSlot.append("<li><a href='/" + data[i].query + "'>" + data[i].question + "</a></li>");
+			$.get(getHostURL().concat(getTwitterInfoURL), function(data){
+				if (data.screen_name) {
+					$.post(getHostURL().concat(saveQuestionURL.concat(data.screen_name).
+							concat('/' + $el.find('.question-text').val() + createURLQuestion())) , function (data) {
+						var quesionSlot = $el.find('.question-list');
+						quesionSlot.empty();
+						$el.find('.question-warning').empty();
+						for (var i=0; i < data.length; i++) {
+							quesionSlot.append("<li><a href='/" + data[i].query + "'>" + data[i].question + "</a></li>");
+						}
+					})
+					.fail(function(){
+						$el.find('.question-warning').append('<div class="alert">' +
+						    '<button type="button" class="close" data-dismiss="alert">&times;</button>' + 
+						    "<strong>Warning!</strong> Hay cosa de mandinga aca!" + 
+						    '</div>');
+					});
 				}
-			})
-			.fail(function(){
-				$el.find('.question-warning').append('<div class="alert">' +
-				    '<button type="button" class="close" data-dismiss="alert">&times;</button>' + 
-				    "<strong>Warning!</strong> Hay cosa de mandinga aca!" + 
-				    '</div>');
 			});
 		}
 		else {
@@ -63,6 +73,19 @@ app.Questions = (function () {
 	
 	var init = function(){
 		bindSaveQuestion();
+		$.get(getHostURL().concat(getTwitterInfoURL), function(data){
+			if (data.screen_name) {
+				$.get(getHostURL().concat(saveQuestionURL.concat(data.screen_name)) , function (data) {
+					var quesionSlot = $el.find('.question-list');
+					quesionSlot.empty();
+					$el.find('.question-warning').empty();
+					for (var i=0; i < data.length; i++) {
+						quesionSlot.append("<li><a href='/" + data[i].query + "'>" + data[i].question + "</a></li>");
+					}
+				})
+			}
+		});
+		$("[data-toggle='tooltip']").tooltip({placement: 'right'});
 	}
 	
 	/***********************/
