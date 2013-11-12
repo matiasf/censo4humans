@@ -75,6 +75,7 @@ app.Questions = (function () {
 		bindSaveQuestion();
 		$.get(getHostURL().concat(getTwitterInfoURL), function(data){
 			if (data.screen_name) {
+				$('#user-name').append(data.screen_name)
 				$.get(getHostURL().concat(saveQuestionURL.concat(data.screen_name)) , function (data) {
 					var quesionSlot = $el.find('.question-list');
 					quesionSlot.empty();
