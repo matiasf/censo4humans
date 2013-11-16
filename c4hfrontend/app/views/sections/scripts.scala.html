@@ -1,8 +1,65 @@
+@(page: String)
+
 <!-- Bootstrap core JavaScript
     ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script src="@routes.Assets.at("js/jquery/jquery.min.js")"></script>
 <script src="@routes.Assets.at("js/jquery/jquery-ui.min.js")"></script>
 <script src="@routes.Assets.at("boot/js/bootstrap.min.js")"></script>
 <script src="@routes.Assets.at("js/jquery/jquery.scrollUp.min.js")"></script>
 <script src="@routes.Assets.at("js/questions.js")"></script>
+<script src="@routes.Assets.at("boot/js/bootstrap-select.min.js")"></script>
+<script src="@routes.Assets.at("js/utilities.js")"></script>
+<script src="@routes.Assets.at("js/ajax-solr/core/Core.js")"></script>
+<script src="@routes.Assets.at("js/ajax-solr/core/AbstractManager.js")"></script>
+<script src="@routes.Assets.at("js/ajax-solr/core/Parameter.js")"></script>
+<script src="@routes.Assets.at("js/ajax-solr/core/ParameterStore.js")"></script>
+<script src="@routes.Assets.at("js/ajax-solr/core/AbstractWidget.js")"></script>
+<script src="@routes.Assets.at("js/ajax-solr/core/AbstractFacetWidget.js")"></script>
+<script src="@routes.Assets.at("js/ajax-solr/managers/Manager.jquery.js")"></script>
+<script src="@routes.Assets.at("js/widgets/FacetWidget.js")"></script>
+<script src="@routes.Assets.at("js/widgets/CurrentSearchWidget.js")"></script>    
+<script src="@routes.Assets.at("js/widgets/jquery/PagerWidget.js")"></script>
+<script src="@routes.Assets.at("js/widgets/ResultWidget.js")"></script>
+<script src="@routes.Assets.at("js/widgets/ChartWidget.js")"></script>
+@if(page == "personas") {
+	<script src="@routes.Assets.at("js/personas-solr.js")"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			for (var column in personasFacetDesc) {
+				$('#title_' + column).text(personasFacetDesc[column]);
+			};
+		});
+	</script>
+} else { @if(page == "hogares") {
+	<script src="@routes.Assets.at("js/hogares-solr.js")"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			for (var column in hogaresFacetDesc) {
+				$('#title_' + column).text(hogaresFacetDesc[column]);
+			};
+		});
+	</script>
+} else { @if(page == "viviendas") {
+	<script src="@routes.Assets.at("js/vivienda-solr.js")"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			for (var column in viviendaFacetDesc) {
+				$('#title_' + column).text(viviendaFacetDesc[column]);
+			};
+		});
+	</script>
+}}}
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.selectpicker').selectpicker();
+      
+		$(function () {
+			$.scrollUp({
+				animation: 'fade',
+				scrollImg: { active: true, type: 'background', src: 'assets/images/top.png' }
+			});
+		});
+	});
+</script>

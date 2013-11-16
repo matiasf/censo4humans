@@ -19,15 +19,15 @@ object Application extends Controller {
   }
 
   def personas(question: String) = Action {
-    implicit request => Ok(views.html.personas(request))
+    implicit request => Ok(views.html.graphpage(request, "personas"))
   }
 
   def viviendas(question: String) = Action {
-    implicit request => Ok(views.html.viviendas(request))
+    implicit request => Ok(views.html.graphpage(request, "viviendas"))
   }
 
   def hogares(question: String) = Action {
-    implicit request => Ok(views.html.hogares(request))
+    implicit request => Ok(views.html.graphpage(request, "hogares"))
   }
 
   def contact = Action {

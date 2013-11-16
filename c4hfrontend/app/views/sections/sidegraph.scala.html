@@ -1,29 +1,36 @@
 @(request: play.api.mvc.RequestHeader)
 
-<div class="col-lg-3 header">
-	@if(!(request.session.get("token") == null || request.session.get("token").isEmpty)) {	
-		<form class="form-inline" onsubmit="return false">
-			<div class="form-group">
-				<button class="btn btn-danger save-question glyphicon glyphicon-floppy-save" data-toggle="tooltip" title="Guardar"></button>
+<div class="row">
+	<div class="col-lg-1">
+	</div>
+	<div class="col-lg-3 header">
+		@if(!(request.session.get("token") == null || request.session.get("token").isEmpty)) {	
+			<form class="form-inline" onsubmit="return false">
+				<div class="form-group">
+					<button class="btn btn-danger save-question glyphicon glyphicon-floppy-save" data-toggle="tooltip" title="Guardar"></button>
+				</div>
+				<div class="form-group">
+					<input placeholder="Nombre de la pregunta ..." type="text" class="question-text form-control">
+				</div>
+			</form>	
+			<p class="question-warning"></p>
+			<div class="btn-group">
+				<button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+					Mis preguntas
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu question-list">
+				</ul>
 			</div>
-			<div class="form-group">
-				<input placeholder="Nombre de la pregunta ..." type="text" class="question-text form-control">
-			</div>
-		</form>	
-		<p class="question-warning"></p>
-		<div class="btn-group">
-			<button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-				Mis preguntas
-				<span class="caret"></span>
-			</button>
-			<ul class="dropdown-menu question-list">
-			</ul>
-		</div>
-	}
-	<h4>Gráfica</h4>
-	<select id="chartType" class="selectpicker"></select>
-	<h4>Campo</h4>
-	<select id="field" class="selectpicker"></select> 
-	<h4>Búsqueda Actual</h4>
-	<ul id="selection" class="filter-list"></ul>
+		}
+		<h4>Gráfica</h4>
+		<select id="chartType" class="selectpicker"></select>
+		<h4>Campo</h4>
+		<select id="field" class="selectpicker"></select> 
+		<h4>Búsqueda Actual</h4>
+		<ul id="selection" class="filter-list"></ul>
+	</div>
+	<div class="col-lg-8">
+	  	<div id="piechart" style="width: 780px; height: 500px;"></div>
+	</div>
 </div>

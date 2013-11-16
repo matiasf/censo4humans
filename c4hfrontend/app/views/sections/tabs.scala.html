@@ -2,7 +2,9 @@
 
 <div class="masthead">
 	<img src="@routes.Assets.at("images/censo4humans-logo-small.png")" style="width: 300px" />
-	<img src="@routes.Assets.at("images/twitter-logo-blue.png")" style="width: 30px" />
+	@if(!(request.session.get("token") == null || request.session.get("token").isEmpty)) {
+		<img src="@routes.Assets.at("images/twitter-logo-blue.png")" style="width: 30px" />
+	}
 	<label id="user-name"></label>
 	@if(request.session.get("token") == null || request.session.get("token").isEmpty) {
 		<a href="/twitter/auth">
