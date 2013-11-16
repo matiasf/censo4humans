@@ -7,16 +7,6 @@
 			@sections.navbar(page, request)
 			@sections.sidegraph(request)
 			@sections.facets(page)
-			<div class="table-responsive results-table">
-				<div id="navigation">
-					<ul id="pager"></ul>
-					<div id="pager-header"></div>
-				</div>
-				<table class="table table-striped table-hover table-condensed">
-					<thead id="docsHeader"></thead>
-					<tbody id="docsBody"></tbody>
-				</table>
-			</div>
 			@sections.result_table()
 			@sections.footer()
 		</div>
