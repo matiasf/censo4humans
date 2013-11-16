@@ -20,7 +20,7 @@ Setting up the Play! Framework
 
 1) Download the Play! Framework from here http://downloads.typesafe.com/play/2.2.1/play-2.2.1.zip and unzip it in the folder that you want:
 
-2) Put the folowing in the .bashrc file in your home folder to have the play! command available (Only for Linux systems)
+2) Put the folowing in the .bashrc file in your home folder to have the play! command available (Only for Linux systems):
 
 	export PATH=$PATH:/relativePath/to/play
 
@@ -42,9 +42,7 @@ Setting up your preferred IDE
 
  		$ eclipse with-source=true
 
-2) If you want to use another IDE (like IntelliJ or Netbeans), following this link
-	
-	http://www.playframework.com/documentation/2.2.x/IDE 		
+2) If you want to use another IDE (like IntelliJ or Netbeans), following this link: http://www.playframework.com/documentation/2.2.x/IDE
 
 
 Running Censo4Humans

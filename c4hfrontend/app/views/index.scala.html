@@ -7,7 +7,7 @@
 	<body>
 		<div class="container">
 	
-			@sections.tabs("home", request)
+			@sections.navbar("", request)
 	
 			<button class="btn btn-large btn-block" type="button"
 				onclick="window.location.href='viviendas/DPTO-01_VIVVO03-7&#64;VIVVO01'">¿Cuántas
@@ -27,7 +27,12 @@
 			@sections.footer()
 	
 		</div>
-		<!-- /container -->	
+		
+		@sections.scripts()
+		<script type="text/javascript">
+	      $(document).ready(function() {
+	         $(initScrollUp);
+	      }); 
+	    </script>
 	</body>
-	
 </html>

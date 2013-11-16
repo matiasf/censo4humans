@@ -97,7 +97,6 @@ app.Questions = (function () {
 	}	
 }());
 
-//Initialize Cart Page
 (function (){
 	app.Questions.init();	
 }());
