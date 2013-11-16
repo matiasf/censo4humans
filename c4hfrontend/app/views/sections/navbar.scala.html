@@ -1,0 +1,41 @@
+@(selected: String, request: play.api.mvc.RequestHeader)
+
+<div class="masthead">
+	<div class="navbar navbar-fixed-top navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+		  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		    <span class="sr-only">Toggle navigation</span>
+		    <span class="icon-bar"></span>
+		    <span class="icon-bar"></span>
+		    <span class="icon-bar"></span>
+		  </button>
+		  <a href="/"> 
+		  	<img src="@routes.Assets.at("images/censo4humans-logo-small.png")" style="width: 262px" />
+		  </a>
+		</div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+			<li @if(selected == "personas") {class="active"}><a href="/personas">Personas</a></li>
+			<li @if(selected == "viviendas") {class="active"}><a href="/viviendas">Viviendas</a></li>
+			<li @if(selected == "hogares") {class="active"}><a href="/hogares">Hogares</a></li>
+			<li @if(selected == "about") {class="active"}><a href="/about">About</a></li>
+			<li @if(selected == "contact") {class="active"}><a href="/contact">Contact</a></li>
+          </ul>
+		  <ul class="nav navbar-nav navbar-right">
+			<li>	
+			@if(request.session.get("token") == null || request.session.get("token").isEmpty) {
+				<a href="/twitter/auth">
+					<img src="@routes.Assets.at("images/twitter-button.png")" />
+				</a>
+			}else {
+				<img src="@routes.Assets.at("images/twitter-logo-blue.png")" style="width: 30px" />
+				<label id="user-name"></label>
+			}
+			</li>
+          </ul>
+        </div><!-- /.nav-collapse -->
+      </div><!-- /.container -->
+    </div><!-- /.navbar -->
+</div>
+

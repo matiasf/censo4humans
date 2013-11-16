@@ -6,6 +6,7 @@ solr-index/personas/data
 # Class and backupt files
 *.class
 *~
+*.orig
 
 # Unnecesary play files
 c4hfrontend/.cache
