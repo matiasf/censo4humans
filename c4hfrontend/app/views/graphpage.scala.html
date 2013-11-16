@@ -1,38 +1,26 @@
 @(request: play.api.mvc.RequestHeader, page: String)
 <!DOCTYPE html>
 <html lang="en">
-	
 	@sections.header()
-	
 	<body>
 		<div class="container">
-	
-			@sections.tabs(page, request)
-	
-
-		@sections.sidegraph(request)
-		
-		@sections.facets(page)
-
-     
-
-      <div class="table-responsive results-table">
-        <div id="navigation">
-          <ul id="pager"></ul>
-          <div id="pager-header"></div>
-        </div>
-        <table class="table table-striped table-hover table-condensed">
-          <thead id="docsHeader"></thead>
-          <tbody id="docsBody"></tbody>
-        </table>
-      </div>
-	
+			@sections.navbar(page, request)
+			@sections.sidegraph(request)
+			@sections.facets(page)
+			<div class="table-responsive results-table">
+				<div id="navigation">
+					<ul id="pager"></ul>
+					<div id="pager-header"></div>
+				</div>
+				<table class="table table-striped table-hover table-condensed">
+					<thead id="docsHeader"></thead>
+					<tbody id="docsBody"></tbody>
+				</table>
+			</div>
+			@sections.result_table()
 			@sections.footer()
-	
 		</div>
-		
 		@sections.scripts(page)
 		<!-- /container -->	
 	</body>
-	
 </html>
