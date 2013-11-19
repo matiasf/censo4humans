@@ -13,7 +13,7 @@ AjaxSolr.CurrentSearchWidget = AjaxSolr.AbstractWidget.extend({
       facetValueDesc = getFacetValueDesc((this.facetValuesDescMap), fq[i].split(':')[0], fq[i].split(':')[1]);
       facetNameAndValueDesc = facetNameDesc + ": " + facetValueDesc;
       facetValueDescShort = facetValueDesc.length > 30 ? facetValueDesc.substring(0, 30) + "..." : facetValueDesc;
-      links.push($('<button class="btn btn-success btn-sm" data-toggle="tooltip" title="' + facetNameAndValueDesc + '"><span class="glyphicon glyphicon-remove"></span>' + facetValueDescShort +'</button>')
+      links.push($('<button class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="right" title="' + facetNameAndValueDesc + '"><span class="glyphicon glyphicon-remove"></span>' + facetValueDescShort +'</button>')
         .click(self.removeFacet(fq[i])));
     }
 
@@ -31,7 +31,7 @@ AjaxSolr.CurrentSearchWidget = AjaxSolr.AbstractWidget.extend({
       for (var i = 0, l = links.length; i < l; i++) {
         $target.append($('<li></li>').append(links[i]));
       }
-      $("[data-toggle='tooltip']").tooltip({placement: 'right'});
+      $("[data-toggle='tooltip']").tooltip();
     }
     else {
       $(this.target).html('<li>Estás viendo todos los documentos :)</li>');

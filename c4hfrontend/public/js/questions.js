@@ -86,7 +86,7 @@ app.Questions = (function () {
 				})
 			}
 		});
-		$("[data-toggle='tooltip']").tooltip({placement: 'right'});
+		$("[data-toggle='tooltip']").tooltip();
 	}
 	
 	/***********************/

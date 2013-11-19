@@ -1,34 +1,66 @@
 @(implicit request: play.api.mvc.RequestHeader)
 <!DOCTYPE html>
 <html lang="en">
+
+@sections.header()
+
+<body>
+	@sections.navbar("home", request)
+
+	<div class="jumbotron">
+      <div class="container">
+        <img src="@routes.Assets.at("images/censo4humans-logo-banner.png")" class="img-responsive image-banner"/>  
+		<p>Navega y grafica la información censal de una forma rápida y amigable</p>
+      </div>
+    </div>
 	
-	@sections.header()
-	
-	<body>
-		<div class="container">
-	
-			@sections.navbar("", request)
-	
-			<button class="btn btn-large btn-block" type="button"
-				onclick="window.location.href='viviendas/DPTO-01_VIVVO03-7&#64;VIVVO01'">¿Cuántas
-				viviendas vacías hay en Montevideo y de qué tipos?</button>
-			<button class="btn btn-large btn-block" type="button"
-				onclick="window.location.href='viviendas/VIVVO01-10&#64;DPTO'">¿Cuántos
-				hospitales o sanatorios con internacion hay por departamento?</button>
-			<button class="btn btn-large btn-block" type="button"
-				onclick="window.location.href='viviendas/DPTO-01&#64;CCZ'">¿Cuántas
-				viviendas atiende cada Centro Comunal en Montevideo?</button>
-			<button class="btn btn-large btn-block" type="button"
-				onclick="window.location.href='viviendas/VIVDV03-0_VIVVO03-1&#64;DPTO'">¿En
-				cuántas viviendas, estando residentes presente en su casa al momento
-				del CENSO, no brindo datos sobre la información de la vivienda por
-				departamento?</button>
-	
-			@sections.footer()
-	
+	<div class="container">	
+		<div class="row">
+			<div class="col-6 col-sm-6 col-lg-4">
+				<div class="panel panel-default">
+				  <div class="panel-body question-bullet" onclick="window.location.href='viviendas/DPTO-01_VIVVO03-7&#64;VIVVO01'">
+				    ¿Cuántas viviendas vacías hay en Montevideo y de qué tipos?
+				  </div>
+				</div>
+			</div>
+			<div class="col-6 col-sm-6 col-lg-4">
+				<div class="panel panel-default">
+				  <div class="panel-body question-bullet" onclick="window.location.href='personas/PERPH02-2_DPTO-03&#64;NIVELEDU_R'">
+				    ¿Cuál es el nivel educativo de las mujeres de Canelones?
+				  </div>
+				</div>
+			</div>
+			<div class="col-6 col-sm-6 col-lg-4">
+				<div class="panel panel-default">
+				  <div class="panel-body question-bullet" onclick="window.location.href='personas/PERDI05-3&#64;DPTO'">
+				    ¿Cuántas personas por departamento cuentan con mucha dificultad para entender y/o aprender?
+				  </div>
+				</div>
+			</div>
+			<div class="col-6 col-sm-6 col-lg-4">
+				<div class="panel panel-default question-bullet">
+				  <div class="panel-body" onclick="window.location.href='viviendas/VIVVO01-10&#64;DPTO'">
+				    ¿Cuántos hospitales o sanatorios con internación hay por departamento?
+				  </div>
+				</div>
+			</div>
+			<div class="col-6 col-sm-6 col-lg-4">
+				<div class="panel panel-default question-bullet">
+				  <div class="panel-body" onclick="window.location.href='viviendas/DPTO-01&#64;CCZ'">
+				  	¿Cuántas viviendas atiende cada Centro Comunal en Montevideo?
+				  </div>
+				</div>
+			</div>
+			<div class="col-6 col-sm-6 col-lg-4">
+				<div class="panel panel-default question-bullet">
+				  <div class="panel-body" onclick="window.location.href='viviendas/VIVDV03-0_VIVVO03-1&#64;DPTO'">
+				    ¿En cuántas viviendas, estando residentes presente en su casa al momento del CENSO, no brindo datos sobre la información de la vivienda por departamento?
+				  </div>
+				</div>
+			</div>
 		</div>
-		@sections.scripts("")
-		<!-- /container -->	
-	</body>
-	
+		@sections.footer()
+	 </div>
+	@sections.scripts("")
+</body>
 </html>
