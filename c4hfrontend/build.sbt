@@ -9,7 +9,7 @@ libraryDependencies ++= Seq(
 )
 
 val appDependencies = Seq(
-  "mysql" % "mysql-connector-java" % "5.1.21"
+  "mysql" % "mysql-connector-java" % "5.5.31"
 ) 
 
 play.Project.playScalaSettings
