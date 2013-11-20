@@ -4,8 +4,10 @@
 	<div class="col-md-4 search-panel" id="search-panel-column">
 		@if(!(request.session.get("token") == null || request.session.get("token").isEmpty)) {	
 		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h4 class="panel-title"><a data-toggle="collapse" href="#mySearchPanel">Mis Búsquedas</a></h4>
+			<div class="panel-heading" data-toggle="tooltip" data-placement="top" title="Haga click para ocultar este panel">
+				<h4 class="panel-title" >
+					<a data-toggle="collapse" href="#mySearchPanel">Mis Búsquedas</a>
+				</h4>
 			</div>
 			<div id="mySearchPanel" class="panel-collapse collapse in">
 	  			<div class="panel-body">
@@ -15,7 +17,7 @@
 						</div>
 						<div class="form-group">
 							<input placeholder="Nombre de la búsqueda ..." type="text" class="question-text form-control" 
-									data-toggle="tooltip" title="Nombre de la búsqueda a guardar ...">
+									data-toggle="tooltip" data-placement="right" title="Indique el nombre de la búsqueda a guardar">
 						</div>
 					</form>	
 					<p class="question-warning"></p>
@@ -32,7 +34,7 @@
 		</div>
 		}
 		<div class="panel panel-default">
-			<div class="panel-heading">
+			<div class="panel-heading" data-toggle="tooltip" data-placement="top" title="Haga click para ocultar este panel">
 				<h4 class="panel-title">
 					<a data-toggle="collapse" href="#actualSearchPanel">Búsqueda Actual</a>
 				</h4>
