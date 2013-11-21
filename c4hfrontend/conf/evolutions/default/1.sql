@@ -4,7 +4,7 @@
 
 CREATE SEQUENCE question_id_seq;
 CREATE TABLE question (
-    id integer NOT NULL DEFAULT nextval('question_id_seq'),
+    id integer NOT NULL AUTO_INCREMENT,
     question varchar(255)
 );
  
