@@ -13,6 +13,12 @@
 	    for(var column in (this.facetDescMap)) {
 			if(column == sfield) {
 			    $('#field').append('<option value="' + column + '" selected>' + (this.facetDescMap)[column] + '</option>');
+			    if (column == 'DPTO') {
+			    	$('#map-option').attr('style', '')
+			    }
+			    else {
+			    	$('#map-option').attr('style', 'display: none;')
+			    }
 			}
 			else {
 			    $('#field').append('<option value="' + column + '">' + (this.facetDescMap)[column] + '</option>');
@@ -21,12 +27,39 @@
 	    
 	    for(var option in optionChart) {
 	    	if (option == schart) {
-	    		$('#chartType').append('<option value="' + option + '" selected>' + optionChart[option] + '</option>');
+	    		if (option == '3') {
+	    			$('#chartType').append('<option value="' + option + '" selected>' + optionChart[option] + '</option>');
+	    			('.btn-group.bootstrap-select').eq(1).attr('style', 'display: none;');
+	    		}
+	    		else {
+	    			$('#chartType').append('<option value="' + option + '" selected>' + optionChart[option] + '</option>');
+	    			$('.btn-group.bootstrap-select').eq(1).attr('style', '');
+	    		}
 	    	}
 	    	else {
-	    		$('#chartType').append('<option value="' + option + '">' + optionChart[option] + '</option>');
+		    	$('#chartType').append('<option value="' + option + '">' + optionChart[option] + '</option>');
 	    	}
 	    };
+	    
+	    $('#field').change(function () {
+	    	if ($('#field').val() == 'DPTO') {
+	    		$('li[rel="2"]').eq(0).attr('style', '');
+	    	}
+	    	else {
+	    		$('li[rel="2"]').eq(0).attr('style', 'display: none;');
+	    	}
+	    });
+	    
+	    $('#chartType').change(function () {
+	    	if ($('#chartType').val() == '3') {
+	    		$('.btn-group.bootstrap-select').eq(1).attr('style', 'display: none;');
+	    		$('#field-label').attr('style', 'display: none;');
+	    	}
+	    	else {
+	    		$('.btn-group.bootstrap-select').eq(1).attr('style', '');
+	    		$('#field-label').attr('style', '');
+	    	}
+	    });
 	    
 	    $(this.target).change(function() {
 	    	Manager.doRequest();
