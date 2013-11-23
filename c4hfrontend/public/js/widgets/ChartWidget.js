@@ -4,8 +4,10 @@
 	
 	init: function() {
 	    var sfield = '';
+	    var schart = '';
 	    if (document.URL.indexOf('@') !== -1) {
 	    	sfield = document.URL.split('/')[document.URL.split('/').length-1].split('@')[1];
+	    	schart = document.URL.split('/')[document.URL.split('/').length-1].split('@')[2];
 		}
 	    
 	    for(var column in (this.facetDescMap)) {
@@ -18,7 +20,12 @@
 	    };
 	    
 	    for(var option in optionChart) {
-			$('#chartType').append('<option value="' + option + '">' + optionChart[option] + '</option>');
+	    	if (option == schart) {
+	    		$('#chartType').append('<option value="' + option + '" selected>' + optionChart[option] + '</option>');
+	    	}
+	    	else {
+	    		$('#chartType').append('<option value="' + option + '">' + optionChart[option] + '</option>');
+	    	}
 	    };
 	    
 	    $(this.target).change(function() {

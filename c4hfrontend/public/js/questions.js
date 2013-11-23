@@ -19,7 +19,7 @@ app.Questions = (function () {
 				}
 			}
 		}		
-		questionString += '@' + $el.find('#field').val();
+		questionString += '@' + $el.find('#field').val() + '@' + $el.find('#chartType').val();
 		return questionString;
 	}
 	
