@@ -11,7 +11,7 @@
 		    <span class="icon-bar"></span>
 		  </button>
 		  <a href="/" @if(selected == "home") { class="hidden"}> 
-		  	<img src="@routes.Assets.at("images/censo4humans-logo-small.png")" style="width: 262px" />
+		  	<img src="@routes.Assets.at("images/censo4humans-logo-small.png")" style="width: 262px" data-toggle="tooltip" data-placement="right" title="Inicio" />
 		  </a>
 		</div>
         <div class="navbar-collapse collapse">
@@ -19,8 +19,7 @@
 			<li @if(selected == "personas") {class="active"}><a href="/personas">Personas</a></li>
 			<li @if(selected == "viviendas") {class="active"}><a href="/viviendas">Viviendas</a></li>
 			<li @if(selected == "hogares") {class="active"}><a href="/hogares">Hogares</a></li>
-			<li @if(selected == "about") {class="active"}><a href="/about">About</a></li>
-			<li @if(selected == "contact") {class="active"}><a href="/contact">Contact</a></li>
+			<li @if(selected == "about") {class="active"}><a href="/about">Sobre Nosotros</a></li>
           </ul>
 		  <ul class="nav navbar-nav navbar-right">
 			<li>	

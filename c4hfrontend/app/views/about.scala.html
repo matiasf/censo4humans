@@ -1,19 +1,43 @@
 @(implicit request: play.api.mvc.RequestHeader)
 <!DOCTYPE html>
 <html lang="en">
-	
 	@sections.header()
+<body>
+	<div class="container">
+		@sections.navbar("about", request)
+		
+		 <div class="container marketing about-section">
 	
-	<body>
-		<div class="container">
-	
-			@sections.navbar("about", request)
-	
-			@sections.footer()
-	
+	        <div class="row">
+	        <div class="col-lg-4">
+	        </div><!-- /.col-lg-4 -->
+	        <div class="col-lg-4">
+	          <h2><code>Censo 4 Humans</code></h2>
+	          <p><a class="btn btn-default" href="https://twitter.com/censo4humans" role="button">Twitter &raquo;</a></p>
+	        </div><!-- /.col-lg-4 -->
+	        <div class="col-lg-4">
+	        </div><!-- /.col-lg-4 -->
+	      </div><!-- /.row -->
+				
+	      <div class="row">
+	        <div class="col-lg-4">
+	          <h2>Matías Fernández</h2>
+	          <p><a class="btn btn-default" href="https://twitter.com/vectorns" role="button">Twitter &raquo;</a></p>
+	        </div><!-- /.col-lg-4 -->
+	        <div class="col-lg-4">
+	          <h2>Guillermo Polito</h2>
+	          <p><a class="btn btn-default" href="https://twitter.com/gpolito" role="button">Twitter &raquo;</a></p>
+	        </div><!-- /.col-lg-4 -->
+	        <div class="col-lg-4">
+	          <h2>Guillermo Suarez</h2>
+	          <p><a class="btn btn-default" href="https://twitter.com/galleplop" role="button">Twitter &raquo;</a></p>
+	        </div><!-- /.col-lg-4 -->
+	      </div><!-- /.row -->
 		</div>
-		@sections.scripts("")
-		<!-- /container -->	
-	</body>
-	
+		
+		@sections.footer()
+	</div>
+	@sections.scripts("")
+	<!-- /container -->	
+</body>
 </html>

@@ -6,61 +6,145 @@
 
 <body>
 	@sections.navbar("home", request)
-
-	<div class="jumbotron">
-      <div class="container">
-        <img src="@routes.Assets.at("images/censo4humans-logo-banner.png")" class="img-responsive image-banner"/>  
-		<p>Navega y grafica la información censal de una forma rápida y amigable</p>
-      </div>
-    </div>
 	
-	<div class="container">	
-		<div class="row">
-			<div class="col-6 col-sm-6 col-lg-4">
-				<div class="panel panel-default">
-				  <div class="panel-body question-bullet" onclick="window.location.href='viviendas/DPTO-01_VIVVO03-7&#64;VIVVO01'">
-				    ¿Cuántas viviendas vacías hay en Montevideo y de qué tipos?
-				  </div>
-				</div>
-			</div>
-			<div class="col-6 col-sm-6 col-lg-4">
-				<div class="panel panel-default">
-				  <div class="panel-body question-bullet" onclick="window.location.href='personas/PERPH02-2_DPTO-03&#64;NIVELEDU_R'">
-				    ¿Cuál es el nivel educativo de las mujeres de Canelones?
-				  </div>
-				</div>
-			</div>
-			<div class="col-6 col-sm-6 col-lg-4">
-				<div class="panel panel-default">
-				  <div class="panel-body question-bullet" onclick="window.location.href='personas/PERDI05-3&#64;DPTO'">
-				    ¿Cuántas personas por departamento cuentan con mucha dificultad para entender y/o aprender?
-				  </div>
-				</div>
-			</div>
-			<div class="col-6 col-sm-6 col-lg-4">
-				<div class="panel panel-default question-bullet">
-				  <div class="panel-body" onclick="window.location.href='viviendas/VIVVO01-10&#64;DPTO'">
-				    ¿Cuántos hospitales o sanatorios con internación hay por departamento?
-				  </div>
-				</div>
-			</div>
-			<div class="col-6 col-sm-6 col-lg-4">
-				<div class="panel panel-default question-bullet">
-				  <div class="panel-body" onclick="window.location.href='viviendas/DPTO-01&#64;CCZ'">
-				  	¿Cuántas viviendas atiende cada Centro Comunal en Montevideo?
-				  </div>
-				</div>
-			</div>
-			<div class="col-6 col-sm-6 col-lg-4">
-				<div class="panel panel-default question-bullet">
-				  <div class="panel-body" onclick="window.location.href='viviendas/VIVDV03-0_VIVVO03-1&#64;DPTO'">
-				    ¿En cuántas viviendas, estando residentes presente en su casa al momento del CENSO, no brindo datos sobre la información de la vivienda por departamento?
-				  </div>
-				</div>
-			</div>
-		</div>
+   <div id="myCarousel" class="carousel slide" data-ride="carousel">
+     <!-- Indicators -->
+     <ol class="carousel-indicators">
+       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+       <li data-target="#myCarousel" data-slide-to="1"></li>
+       <li data-target="#myCarousel" data-slide-to="2"></li>
+       <li data-target="#myCarousel" data-slide-to="3"></li>
+     </ol>
+     <div class="carousel-inner">
+       <div class="item active">
+         <div class="container">
+           <div class="carousel-caption">
+           	 <img src="@routes.Assets.at("images/censo4humans-logo-small.png")">
+             <h1>Bienvenidos</h1>
+             <h4>El objetivo de <code>Censo 4 Humans</code> es generar una herramienta de consulta del último <a href="http://www.ine.gub.uy/censos2011/index.html">Censo Nacional</a> de fácil acceso, 
+             que permita universalizar una información que es propiedad de todos.</h4> 
+             <h4>En este portal tendrás la oportunidad de personalizar al máximo los datos censales. 
+             Podés ser un simple curioso, un periodista o un investigador. </h4> 
+             <h4>Siguiendo estos pasos muy sencillos, encontrarás toda la información  del censo que necesites, incorporando las capas que más te interesen. </h4>
+             <p><a class="btn btn-lg btn-primary" href="javascript:goToByScroll('primer-paso');" role="button">Mira estos simples pasos</a></p>
+           </div>
+         </div>
+       </div>
+       <div class="item">
+         <div class="container">
+           <div class="carousel-caption">
+           	 <img src="@routes.Assets.at("images/censo4humans-logo-small.png")">
+             <h1>Personas</h1>
+             <p>Es cierto, en Uruguay hay más mujeres que hombres. Y no unas cuantas. Son decenas de miles. Para ser exactos: el 52% de la población. 
+             	Unas 131.045 mujeres sobrepasan el número de hombres. ¿Sabías que setiembre es el mes en el que nacen más uruguayos? 
+             	¿O que en 1995 se vivió un baby boom? Recorré los datos de <a href="personas">Personas</a> recabados por el último <a href="http://www.ine.gub.uy/censos2011/index.html">Censo Nacional</a> adaptados a tus inquietudes. </p>
+             	<p><a class="btn btn-lg btn-primary" href="personas/PERPH02-2_DPTO-03&#64;NIVELEDU_R" role="button" data-toggle="tooltip" data-placement="top" title="Prueba este ejemplo de búsqueda">¿Cuál es el nivel educativo de las mujeres de Canelones?</a></p>
+           </div>
+         </div>
+       </div>
+       <div class="item">
+         <div class="container">
+           <div class="carousel-caption">
+             <img src="@routes.Assets.at("images/censo4humans-logo-small.png")">
+             <h1>Viviendas</h1>
+             <p>¿Sabías que en Uruguay hay 8.212 viviendas con techos construidos con residuos y 5.404 viviendas con piso de tierra? 
+             Solo en Montevideo hay 14.562 viviendas vacías. Mientras, en Uruguay hay 8.212 viviendas con techos en base a residuos 
+             y 5.404 viviendas con piso de tierra. Accedé a la información de <a href="viviendas">Viviendas</a> del último <a href="http://www.ine.gub.uy/censos2011/index.html">Censo Nacional</a> y sacate todas tus dudas. </p>
+             <p><a class="btn btn-lg btn-primary" href="viviendas/DPTO-01_VIVVO03-7&#64;VIVVO01" role="button" data-toggle="tooltip" data-placement="top" title="Prueba este ejemplo de búsqueda">¿Cuántas viviendas vacías hay en Montevideo y de qué tipos?</a></p>
+           </div>
+         </div>
+       </div>
+       <div class="item">
+         <div class="container">
+           <div class="carousel-caption">
+             <img src="@routes.Assets.at("images/censo4humans-logo-small.png")">
+             <h1>Datos Abiertos</h1>
+             <p><code>Censo 4 Humans</code> obtuvo el <a href="http://2013.desarrollandoamerica.org/portfolio/censo4humans/">Primer Premio</a> en el <a href="http://www.datauy.org/llego-oktober-datafest/">Oktober DATAFEST 2013</a>. 
+             <br/> Este encuentro de la comunidad Data promueve los Datos Abiertos y ayuda en el desarrollo de aplicaciones y 
+             herramientas desde el nacimiento de la idea hasta la incubación de un proyecto. 
+             Compartimos los objetivos de la comunidad <a href="http://www.datauy.org/">Data</a>. Nos interesa crear valor a partir de los datos públicos para entender 
+             y resolver a los problemas que nos enfrentamos.</p>
+             <p><a class="btn btn-lg btn-primary" href="about" role="button">Sobre Nosotros</a></p>
+           </div>
+         </div>
+       </div>
+     </div>
+     <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+     <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+   </div><!-- /.carousel -->
+   
+   <hr id="primer-paso" class="featurette-divider">
+
+   <div class="container marketing">
+	   <div class="row featurette">
+	     <div class="col-md-7">
+	       <h2 class="featurette-heading">Personas, Hogares o Viviendas. <span class="text-muted">Elige el rubro.</span></h2>
+	       <p class="lead">El censo divide la información en tres rubros: <a href="personas">Personas</a>, <a href="viviendas">Viviendas</a> (las construcciones en sí), <a href="hogares">Hogares</a> (las condiciones de vida de las familias). 
+				Lo primero que tenés que hacer es elegir qué rubro te interesa investigar, haciendo click en algunos de los links de la barra de navegación. 
+		   		 <a class="btn" href="javascript:goToByScroll('segundo-paso');" role="button">siguiente <span class="glyphicon glyphicon-chevron-right"></span></a>	
+		   </p>
+	     </div>
+	     <div class="col-md-5">
+	       <img class="featurette-image img-responsive img-thumbnail" src="@routes.Assets.at("images/personas.png")" alt="Personas Hogares Viviendas">
+	     </div>
+	   </div>
+	
+	   <hr id="segundo-paso" class="featurette-divider">
+	   <div class="row featurette">
+	     <div class="col-md-5">
+	       <img class="featurette-image img-responsive img-thumbnail" src="@routes.Assets.at("images/graficas.png")" alt="Torta Columnas Mapa">
+	     </div>
+	     <div class="col-md-7" >
+	       <h2 class="featurette-heading">Torta, Columnas o Mapa. <span class="text-muted">Elige el Tipo de Gráfica.</span></h2>
+	       <p class="lead">Una vez que ingreses al rubro deseado, podrás optar entre tres tipos de gráficas: 
+		    <dl class="dl-horizontal tipos-grafica-list">
+			  <dt>Torta</dt>
+			  <dd>Esta gráfica te permitirá ver el dato que elijas en porcentaje.</dd>
+			  <dt>Columnas</dt>
+			  <dd>Está gráfica te dará acceso a las cifras totales. </dd>
+			  <dt>Mapa</dt>
+			  <dd>En los casos que quieras comparar un mismo dato a nivel de todo el país, 
+		   	podrás acceder al mapa nacional que te desplegará esa información  
+	     	  (Solo disponible cuando el <b>Dato a Graficar</b> es <b>Departamento</b>)</dd>
+			</dl>
+			<a class="btn" href="javascript:goToByScroll('tercer-paso');" role="button">siguiente <span class="glyphicon glyphicon-chevron-right"></span></a>
+			</p>
+	     </div>
+	   </div>
+	
+	   <hr id="tercer-paso" class="featurette-divider">
+	   <div class="row featurette">
+	     <div class="col-md-7">
+	       <h2 class="featurette-heading">Elige el dato por el cual graficar. <span class="text-muted"> </span></h2>
+	       <p class="lead">
+	       	En el campo <b>Dato a graficar</b> encontrarás todas las categorías disponibles para los diferentes rubros (Personas, Viviendas, Hogares) recabadas en el último censo nacional. 
+			<br/>A esos datos podrás filtrarlos también por territorio: tenés la opción de elegir por departamento, localidad, centro comunal zonal o sección policial. 
+	       	<a class="btn" href="javascript:goToByScroll('cuarto-paso');" role="button">por último! <span class="glyphicon glyphicon-chevron-right"></span></a>
+	       </p>
+	     </div>
+	     <div class="col-md-5">
+	       <img class="featurette-image img-responsive img-thumbnail" src="@routes.Assets.at("images/datos-a-graficar.png")" alt="Generic placeholder image">
+	     </div>
+	   </div>
+	   
+	   <hr id="cuarto-paso" class="featurette-divider">
+	   <div class="row featurette">
+	     <div class="col-md-5">
+	       <img class="featurette-image img-responsive img-thumbnail" src="@routes.Assets.at("images/filtros.png")" alt="Generic placeholder image">
+	     </div>
+	     <div class="col-md-7">
+	       <h2 class="featurette-heading">Quiero ser más especifico! <span class="text-muted">Filtra tu búsqueda.</span></h2>
+	       <p class="lead">Si deseas hacer más específica tu búsqueda, puedes aplicar la cantidad de filtros que quieras: 
+	       la búsqueda se actualizará automaticamente utilizando los datos que cumplan con los filtros indicados.   
+			</p>
+	     </div>
+	   </div>
+	</div>
+	    
+	<div class="container">
 		@sections.footer()
-	 </div>
+	</div>
+	
 	@sections.scripts("")
 </body>
 </html>

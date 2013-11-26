@@ -91,3 +91,12 @@ ul.filter-list li {
 .question-bullet:hover {
   	background: white;
 }
+
+.tipos-grafica-list {
+	font-size: 1.1em;
+}
+
+.about-section {
+	margin-top: 60px;
+	margin-bottom: 60px;
+}

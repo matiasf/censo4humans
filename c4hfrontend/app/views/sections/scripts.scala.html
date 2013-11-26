@@ -23,6 +23,7 @@
 <script src="@routes.Assets.at("js/widgets/jquery/PagerWidget.js")"></script>
 <script src="@routes.Assets.at("js/widgets/ResultWidget.js")"></script>
 <script src="@routes.Assets.at("js/widgets/ChartWidget.js")"></script>
+<script src="@routes.Assets.at("js/jquery/holder.js")"></script>
 
 @if(page == "personas") {
 	<script src="@routes.Assets.at("js/personas-solr.js")"></script>
@@ -62,7 +63,8 @@
 				scrollImg: { active: true, type: 'background', src: 'assets/images/top.png' }
 			});
 		});
-		
 		$(initScrollUp);
+
+		$("[data-toggle='tooltip']").tooltip();
 	});
 </script>
