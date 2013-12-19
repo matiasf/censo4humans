@@ -1,7 +1,7 @@
-@(implicit request: play.api.mvc.RequestHeader)
+@(request: play.api.mvc.RequestHeader, page: String)
 <!DOCTYPE html>
 <html lang="en">
-	@sections.header()
+	@sections.header(page)
 <body>
 	<div class="container">
 		@sections.navbar("about", request)
@@ -13,7 +13,8 @@
 	        </div><!-- /.col-lg-4 -->
 	        <div class="col-lg-4">
 	          <h2><code>Censo 4 Humans</code></h2>
-	          <p><a class="btn btn-default" href="https://twitter.com/censo4humans" role="button">Twitter &raquo;</a></p>
+	          <p><a href="https://twitter.com/censo4humans" class="twitter-follow-button" data-show-count="false" data-lang="es">Seguir a @@censo4humans</a> 
+	          <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://c4h.pyxis.com.uy:8008" data-text="Consulta y grafica de forma amigable y eficiente los datos censales :)" data-via="censo4humans" data-lang="es" data-related="censo4humans" data-hashtags="censo4humans">Twittear</a></p>
 	        </div><!-- /.col-lg-4 -->
 	        <div class="col-lg-4">
 	        </div><!-- /.col-lg-4 -->
@@ -22,15 +23,15 @@
 	      <div class="row">
 	        <div class="col-lg-4">
 	          <h2>Matías Fernández</h2>
-	          <p><a class="btn btn-default" href="https://twitter.com/vectorns" role="button">Twitter &raquo;</a></p>
+	          <p><a href="https://twitter.com/vectorns" class="twitter-follow-button" data-show-count="false" data-lang="es">Seguir a @@vectorns</a></p>
 	        </div><!-- /.col-lg-4 -->
 	        <div class="col-lg-4">
 	          <h2>Guillermo Polito</h2>
-	          <p><a class="btn btn-default" href="https://twitter.com/gpolito" role="button">Twitter &raquo;</a></p>
+	          <p><a href="https://twitter.com/gpolito" class="twitter-follow-button" data-show-count="false" data-lang="es">Seguir a @@gpolito</a></p>
 	        </div><!-- /.col-lg-4 -->
 	        <div class="col-lg-4">
 	          <h2>Guillermo Suarez</h2>
-	          <p><a class="btn btn-default" href="https://twitter.com/galleplop" role="button">Twitter &raquo;</a></p>
+	          <p><a href="https://twitter.com/galleplop" class="twitter-follow-button" data-show-count="false" data-lang="es">Seguir a @@galleplop</a></p>
 	        </div><!-- /.col-lg-4 -->
 	      </div><!-- /.row -->
 		</div>
@@ -38,6 +39,8 @@
 		@sections.footer()
 	</div>
 	@sections.scripts("")
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+	
 	<!-- /container -->	
 </body>
 </html>

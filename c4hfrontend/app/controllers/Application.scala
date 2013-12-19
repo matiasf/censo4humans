@@ -15,7 +15,7 @@ object Application extends Controller {
       "openid" -> email))
 
   def home = Action { 
-    implicit request => Ok(views.html.index(request))
+    implicit request => Ok(views.html.index(request, ""))
   }
 
   def personas(question: String) = Action {
@@ -31,11 +31,11 @@ object Application extends Controller {
   }
 
   def contact = Action {
-    implicit request => Ok(views.html.contact(request))
+    implicit request => Ok(views.html.contact(request, "contact"))
   }
 
   def about = Action {
-    implicit request => Ok(views.html.about(request))
+    implicit request => Ok(views.html.about(request, "about"))
   }
 
 }

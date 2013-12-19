@@ -1,10 +1,22 @@
+@(page: String)
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="">
 	
-	<title>Censo4Humans</title>
+	@if(page == "personas") {
+		<title>Censo4Humans - Personas</title>
+	} else { @if(page == "hogares") {
+		<title>Censo4Humans - Hogares</title>
+	} else { @if(page == "viviendas") {
+		<title>Censo4Humans - Viviendas</title>
+	} else { @if(page == "about") {
+		<title>Censo4Humans - Sobre Nosotros</title>
+	} else {
+		<title>Censo4Humans</title>
+	}}}}
 	
 	<!-- Bootstrap core CSS -->
 	<link href="@routes.Assets.at("boot/css/bootstrap.min.css")" rel="stylesheet">

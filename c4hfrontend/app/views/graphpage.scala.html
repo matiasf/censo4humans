@@ -1,7 +1,7 @@
 @(request: play.api.mvc.RequestHeader, page: String)
 <!DOCTYPE html>
 <html lang="en">
-	@sections.header()
+	@sections.header(page)
 <body>
 	<div class="container">
 		@sections.navbar(page, request)
