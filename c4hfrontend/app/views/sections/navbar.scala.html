@@ -10,7 +10,7 @@
 		    <span class="icon-bar"></span>
 		    <span class="icon-bar"></span>
 		  </button>
-		  <a href="/" @if(selected == "home") { class="hidden"}> 
+		  <a href="/" @if(selected == "home" || selected == "about") { class="hidden"}> 
 		  	<img src="@routes.Assets.at("images/censo4humans-logo-small.png")" style="width: 262px" data-toggle="tooltip" data-placement="right" title="Inicio" />
 		  </a>
 		</div>

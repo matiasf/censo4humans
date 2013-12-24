@@ -97,7 +97,7 @@ ul.filter-list li {
 }
 
 .about-section {
-	margin-top: 60px;
+	margin-top: 20px;
 	margin-bottom: 60px;
 }
 
@@ -134,4 +134,14 @@ ul.filter-list li {
 
 .link-carousel {
 	color: #53BCEE;
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.banner-about {
+	margin-bottom: 40px;
 }
